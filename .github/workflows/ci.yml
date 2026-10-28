@@ -21,7 +21,8 @@ jobs:
         with:
           dotnet-version: '10.0.x'
       - run: dotnet test tests/ServiceConnect.Tests -c Release
-      - run: dotnet test tests/ServiceConnect.Tests -c Release --filter FullyQualifiedName~WorkflowTests
+      - name: Verify SQL Server migrations and full application behavior
+        run: dotnet test tests/ServiceConnect.Tests -c Release
         env:
           TEST_SQLSERVER: 'Server=localhost,1433;User Id=sa;Password=CI_Disposable_Password_123!;Encrypt=True;TrustServerCertificate=True'
       - run: dotnet publish backend/ServiceConnect.Api -c Release

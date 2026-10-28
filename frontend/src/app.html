@@ -1,9 +1,102 @@
-<header><div><span class="brand">Service Connect</span><p>Find help. Compare estimates. Choose with confidence.</p></div>@if(session()){<div>{{session()!.name}} · {{session()!.role}} <button (click)="logout()" [disabled]="busy()">Sign out</button></div>}</header>
-<main><p role="alert" class="error">{{error()}}</p>
-@if(!session()) {<section class="auth"><h1>{{registering?'Create an account':'Welcome back'}}</h1><form (ngSubmit)="auth()"><label>Email<input name="email" type="email" [(ngModel)]="email" required maxlength="254"></label><label>Password<input name="password" type="password" [(ngModel)]="password" required minlength="12" maxlength="128" autocomplete="current-password"></label>@if(registering){<label>Name<input name="name" [(ngModel)]="name" required maxlength="120"></label><label>I am a<select name="role" [(ngModel)]="role"><option>Customer</option><option>Provider</option></select></label>}<button class="primary" [disabled]="busy()">{{registering?'Register':'Sign in'}}</button></form><button (click)="registering=!registering">{{registering?'Already registered? Sign in':'New here? Create an account'}}</button><p>Use at least 12 characters for your password.</p></section>}
-@else {<div class="toolbar"><h1>{{session()!.role==='Customer'?'Your service requests':'Explore service requests'}}</h1><button (click)="run(load.bind(this))" [disabled]="busy()">Refresh</button></div>
-@if(session()!.role==='Customer'){<section><h2>What do you need help with?</h2><form (ngSubmit)="create()"><label>Title<input name="title" [(ngModel)]="title" required maxlength="120"></label><label>Description<textarea name="description" [(ngModel)]="description" required maxlength="4000"></textarea></label><label>City or area<input name="location" [(ngModel)]="location" required maxlength="200"></label><button class="primary" [disabled]="busy()">Post request</button></form></section>}
-<div class="columns"><section><h2>Requests</h2>@for(r of requests();track r.id){<button class="request" (click)="run(details.bind(this,r))" [disabled]="busy()"><strong>{{r.title}}</strong><span>{{r.location}} · {{r.acceptedEstimateId?'Accepted':'Open'}}</span></button>}@empty{<p>No requests yet.</p>}</section>
-@if(selected();as r){<section><h2>{{r.title}}</h2><p class="preserve">{{r.description}}</p><p>{{r.location}}</p>@if(r.acceptedEstimateId){<p class="badge">Estimate accepted · Request closed</p>}
-@for(e of estimates();track e.id){<article><h3>{{e.providerName}} · {{e.amount | currency:'USD'}}</h3><p class="preserve">{{e.notes}}</p><small>Revision {{e.revision}}</small>@if(r.acceptedEstimateId===e.id){<p class="badge">Accepted</p>}@if(session()!.role==='Customer'&&!r.acceptedEstimateId){<button class="primary" (click)="accept(e)" [disabled]="busy()">Accept estimate</button>}<details><summary>Revision history</summary>@for(h of e.history;track h.number){<p>#{{h.number}} · {{h.amount | currency:'USD'}} · {{h.notes}}</p>}</details></article>}@empty{<p>No estimates to display.</p>}
-@if(session()!.role==='Provider'&&!r.acceptedEstimateId){<h3>{{estimates().length?'Revise your estimate':'Send an estimate'}}</h3><form (ngSubmit)="quote()"><label>Amount (USD)<input name="amount" type="number" [(ngModel)]="amount" required min="0.01" step="0.01"></label><label>Scope and terms<textarea name="notes" [(ngModel)]="notes" required maxlength="4000"></textarea></label><button class="primary" [disabled]="busy()">Save estimate</button></form>}<p class="muted">Estimates are in USD. Service Connect does not process payments.</p></section>}</div>}</main><footer>Service Connect · Connect with local expertise</footer>
+<header><div><span class="brand">Service Connect</span><p>Find help. Compare estimates. Choose with confidence.</p></div>
+@if(session()){<div>{{session()!.name}} · {{session()!.role}} <button (click)="logout()" [disabled]="busy()">Sign out</button></div>}</header>
+<main><p role="alert" class="error">{{error()}}</p><p role="status">{{notice()}}</p>
+@if(!session()) {
+ <section class="auth"><h1>{{registering?'Create an account':'Welcome back'}}</h1>
+ <form #authForm="ngForm" (ngSubmit)="auth()">
+  <label>Email<input name="email" type="email" [(ngModel)]="email" required maxlength="254" autocomplete="email"></label>
+  <label>Password<input name="password" type="password" [(ngModel)]="password" required minlength="12" maxlength="128" [attr.autocomplete]="registering?'new-password':'current-password'"></label>
+  @if(registering){
+   <label>Name<input name="name" [(ngModel)]="name" required maxlength="120" autocomplete="name"></label>
+   <label>Phone with country code<input name="phone" type="tel" [(ngModel)]="phone" required pattern="\+[1-9][0-9]{7,14}" placeholder="+12025550100" autocomplete="tel"></label>
+   <label>I am a<select name="role" [(ngModel)]="role"><option value="Customer">Customer</option><option value="Provider">Service provider</option></select></label>
+   @if(role==='Provider'){
+    <label>Business name<input name="business" [(ngModel)]="businessName" required maxlength="160"></label>
+    <label>Qualifications and experience<textarea name="qualifications" [(ngModel)]="qualifications" required maxlength="2000"></textarea></label>
+    <p>Verify your email and phone, then wait for administrator approval before sending estimates.</p>
+   }
+  }
+  <button class="primary" [disabled]="busy()||authForm.invalid">{{registering?'Register':'Sign in'}}</button>
+ </form><button (click)="registering=!registering">{{registering?'Already registered? Sign in':'New here? Create an account'}}</button>
+ <p>Use at least 12 characters for your password.</p></section>
+} @else {
+ <div class="toolbar"><h1>{{session()!.role==='Customer'?'Your service requests':session()!.role==='Admin'?'Administration':'Explore service requests'}}</h1><button (click)="run(load.bind(this))" [disabled]="busy()">Refresh</button></div>
+ @if(me();as account){
+  @if(!account.emailVerified||!account.phoneVerified){
+   <section><h2>Verify your contact details</h2><p>Both email and phone must be verified before you can post requests or send estimates.</p>
+   @for(channel of channels;track channel){
+    @if(channel==='email'?!account.emailVerified:!account.phoneVerified){
+     <div><h3>{{channel==='email'?'Email':'Phone'}} · {{channel==='email'?account.email:account.phone}}</h3>
+     <button (click)="sendCode(channel)" [disabled]="busy()">Send verification code</button>
+     @if(challengeIds[channel]){
+      <form (ngSubmit)="confirmCode(channel)"><label>Six-digit code<input [name]="channel+'Code'" [(ngModel)]="codes[channel]" required pattern="[0-9]{6}" maxlength="6" inputmode="numeric" autocomplete="one-time-code"></label><button [disabled]="busy()">Verify</button></form>
+     }</div>
+    }
+   }</section>
+  }
+  @if(account.provider;as provider){<section><h2>Provider verification: {{provider.status}}</h2><p>{{provider.businessName}}</p><p>{{provider.reviewNotes||'An administrator will review your qualifications after contact verification.'}}</p></section>}
+ }
+ @if(session()!.role==='Admin'){
+  <section><h2>Review service providers</h2>
+   @for(provider of providers();track provider.accountId){<article><h3>{{provider.businessName}} · {{provider.status}}</h3><p class="preserve">{{provider.qualifications}}</p><p>{{provider.account?.email}} · {{provider.account?.phone}}</p><p>Email {{provider.account?.emailVerified?'verified':'unverified'}} · Phone {{provider.account?.phoneVerified?'verified':'unverified'}}</p>
+    <label>Review notes<textarea [name]="provider.accountId" [(ngModel)]="adminNotes[provider.accountId]" maxlength="2000"></textarea></label>
+    <button (click)="decide(provider,true)" [disabled]="busy()||!provider.account?.emailVerified||!provider.account.phoneVerified">Approve</button><button (click)="decide(provider,false)" [disabled]="busy()">Reject / revoke</button><p>{{provider.reviewNotes}}</p>
+   </article>}@empty{<p>No providers registered.</p>}
+  </section>
+ }
+ @if(session()!.role==='Customer'){
+  <section><h2>What do you need help with?</h2><form #requestForm="ngForm" (ngSubmit)="create()">
+   <label>Service<select name="service" [(ngModel)]="serviceId" required><option value="">Choose a service</option>@for(service of services();track service.id){<option [value]="service.id">{{service.name}}</option>}</select></label>
+   <label>Title<input name="title" [(ngModel)]="title" required maxlength="120"></label>
+   <label>Description<textarea name="description" [(ngModel)]="description" required maxlength="4000"></textarea></label>
+   <label>City or area<input name="location" [(ngModel)]="location" required maxlength="200"></label>
+   <button class="primary" [disabled]="busy()||!canPost()||requestForm.invalid">Post request</button>
+  </form></section>
+ }
+ <div class="columns"><section><h2>Requests</h2>
+  @for(request of requests();track request.id){<button class="request" (click)="run(details.bind(this,request))" [disabled]="busy()"><strong>{{request.title}}</strong><span>{{request.location}} · {{statusLabel(request.status)}}</span></button>}@empty{<p>No requests yet.</p>}
+ </section>
+ @if(selected();as request){<section><h2>{{request.title}}</h2><p class="preserve">{{request.description}}</p><p>{{request.location}}</p><p class="badge">{{statusLabel(request.status)}}</p>
+  @for(estimate of estimates();track estimate.id){<article><h3>{{estimate.providerName}} · {{estimate.amount | currency:'USD'}}</h3><p class="preserve">{{estimate.notes}}</p><small>Revision {{estimate.revision}}</small>
+   @if(request.acceptedEstimateId===estimate.id){<p class="badge">Accepted</p>}
+   @if(session()!.role==='Customer'&&!request.acceptedEstimateId){<button class="primary" (click)="accept(estimate)" [disabled]="busy()||!canPost()">Accept estimate</button>}
+   <details><summary>Revision history</summary>@for(revision of estimate.history;track revision.number){<p>#{{revision.number}} · {{revision.amount | currency:'USD'}} · {{revision.notes}}</p>}</details>
+  </article>}@empty{<p>No estimates to display.</p>}
+  @if(session()!.role==='Provider'&&!request.acceptedEstimateId){
+   @if(canQuote()){
+    <h3>{{estimates().length?'Revise your estimate':'Send an estimate'}}</h3><form #quoteForm="ngForm" (ngSubmit)="quote()"><label>Amount (USD)<input name="amount" type="number" [(ngModel)]="amount" required min="0.01" step="0.01"></label><label>Scope and terms<textarea name="notes" [(ngModel)]="notes" required maxlength="4000"></textarea></label><button class="primary" [disabled]="busy()||quoteForm.invalid">Save estimate</button></form>
+   }@else{<p>Complete contact verification and administrator approval to send an estimate.</p>}
+  }
+  @if(isAcceptedProvider()&&request.status==='Accepted'){<button class="primary" (click)="workDone()" [disabled]="busy()">Mark work done</button>}
+  @if(session()!.role==='Customer'&&request.status==='AwaitingCustomerReview'){
+   <h3>Confirm completion and rate the provider</h3><p>All scores and written feedback are required to complete this service.</p>
+   <form #completionForm="ngForm" (ngSubmit)="complete()">
+    <label>Overall (1–5)<input name="overall" type="number" [(ngModel)]="ratings.overall" required min="1" max="5" step="1"></label>
+    <label>Work quality (1–5)<input name="quality" type="number" [(ngModel)]="ratings.quality" required min="1" max="5" step="1"></label>
+    <label>Communication (1–5)<input name="communication" type="number" [(ngModel)]="ratings.communication" required min="1" max="5" step="1"></label>
+    <label>Punctuality (1–5)<input name="punctuality" type="number" [(ngModel)]="ratings.punctuality" required min="1" max="5" step="1"></label>
+    <label>Feedback<textarea name="feedback" [(ngModel)]="ratings.feedback" required maxlength="2000"></textarea></label>
+    <button class="primary" [disabled]="busy()||completionForm.invalid">Confirm completed service and submit feedback</button>
+   </form>
+  }
+  @if(isAcceptedProvider()&&request.status==='Completed'&&!hasProviderReview()){
+   <h3>Rate your experience with the customer</h3><form #reviewForm="ngForm" (ngSubmit)="reviewCustomer()">
+    <label>Overall (1–5)<input name="overall" type="number" [(ngModel)]="ratings.overall" required min="1" max="5" step="1"></label>
+    <label>Communication (1–5)<input name="communication" type="number" [(ngModel)]="ratings.communication" required min="1" max="5" step="1"></label>
+    <label>Cooperation (1–5)<input name="cooperation" type="number" [(ngModel)]="ratings.cooperation" required min="1" max="5" step="1"></label>
+    <label>Readiness for the appointment (1–5)<input name="readiness" type="number" [(ngModel)]="ratings.readiness" required min="1" max="5" step="1"></label>
+    <label>Feedback<textarea name="feedback" [(ngModel)]="ratings.feedback" required maxlength="2000"></textarea></label>
+    <button class="primary" [disabled]="busy()||reviewForm.invalid">Submit customer feedback</button>
+   </form>
+  }
+  @if(history();as activity){
+   <h3>Feedback</h3>@for(review of activity.reviews;track review.id){<article><strong>{{review.direction==='CustomerToProvider'?'Customer review of provider':'Provider review of customer'}} · {{review.overall}} / 5</strong><p>{{review.feedback}}</p><small>Communication {{review.communication}} / 5
+    @if(review.quality!==null){ · Quality {{review.quality}} / 5 · Punctuality {{review.punctuality}} / 5}
+    @if(review.cooperation!==null){ · Cooperation {{review.cooperation}} / 5 · Readiness {{review.readiness}} / 5}
+   </small></article>}@empty{<p>No feedback yet.</p>}
+   <h3>Service activity</h3>@for(event of activity.activities;track event.id){<p><small>{{event.createdAt|date:'medium'}}</small> · {{activityLabel(event.kind)}}<br>{{event.details}}</p>}
+  }
+  <p class="muted">Estimates are in USD. Service Connect does not process payments.</p>
+ </section>}
+ </div>
+}</main><footer>Service Connect · Connect with local expertise</footer>

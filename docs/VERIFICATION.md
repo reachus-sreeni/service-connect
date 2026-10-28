@@ -1,29 +1,26 @@
 # Verification report
 
-Prepared October 27, 2026 (America/Chicago).
+Updated October 27, 2026 (America/Chicago). GitHub main is the source of truth; no new ZIP is generated for this feature update.
 
-## Local results
+## Local checks for the expanded application
 
-- Source recovered from an actual Downloads ZIP and a more complete local source folder; no reliance on broken sandbox download links.
-- ASP.NET Core API Release build and publish succeeded using .NET SDK 10.0.403.
-- Eleven backend tests passed: eight relational workflow cases and three HTTP integration cases (authentication, role/ownership isolation and the customer/provider estimate lifecycle).
-- SQL Server concurrency test is explicitly skipped without TEST_SQLSERVER. Local machine has no Docker/SQL Server, so SQL Server runtime and locking behavior were not verified locally.
-- Angular 22 production build succeeded.
-- Three Angular UI tests passed using Vitest and a simulated DOM, including rendering customer/provider controls. These are component tests; a real browser end-to-end run against SQL Server was not performed.
-- npm dependency audit reports zero known vulnerabilities after pinning Vite 8.3.5. This is a point-in-time scan, not a guarantee of security.
-- Updated .NET packages restored without the vulnerability warnings seen in the original package versions.
-- No AWS deployment was performed. AWS instructions are supplied; credentials/infrastructure are not part of this source package.
+- ASP.NET Core build and Release publish succeeded.
+- Sixteen backend tests passed, covering required phone/email, contact verification, code replay/expiry/attempt limits, administrator approval gates, customer/provider isolation, estimates, completion and two-way reviews.
+- The local file test applies SQLite migrations, seeds all lifecycle states, edits a request, closes/reopens the database and verifies persistence without duplicate seeding.
+- Six Angular component tests passed, including required provider registration fields, verification/approval gates and mandatory completion feedback.
+- Angular production build passed.
+- The actual Development API started with SQLite migrations and synthetic demo data, without SQL Server or Docker.
+- A real browser signed in as the demo customer and displayed persisted requests, completed feedback in both directions and service history.
+- File outbox tests verify private local code files and reject LocalOutbox in Production.
+- A live browser sign-in check found and corrected the frontend's inherited proxy target (5080) to the API's actual local port (5000).
 
-## GitHub verification
+The SQL-only concurrency test is skipped on the Mac, which has no local SQL Server. GitHub Actions runs the full backend suite a second time against SQL Server, including provider-specific migrations and simultaneous acceptance. See [the current workflow runs](https://github.com/reachus-sreeni/service-connect/actions) for remote results.
 
-GitHub Actions run [40619136660](https://github.com/reachus-sreeni/service-connect/actions/runs/40619136660) passed for application commit `7980d9f871289fa2c8498df5d5721b6d4f9f51c2`:
+## Delivery and deployment limits
 
-- Backend: 11 API/relational workflow tests passed; the SQL-only case was skipped in this first pass.
-- SQL Server 2022: all nine workflow/concurrency tests passed, including simultaneous acceptance with exactly one winner.
-- ASP.NET Core Release publish succeeded.
-- Angular production build and all three UI component tests passed.
+Local verification uses the private file outbox; automated tests capture codes without sending messages. Actual SMTP and Twilio delivery require configured credentials and were not tested against live services. Administrator approval reviews supplied qualifications; it is not an identity/background-check service.
 
-The SQL Server checks ran on GitHub's Linux runner rather than the Mac. No real-browser end-to-end run against a deployed AWS environment was performed.
+No AWS resources were deployed. The AWS guide describes SQL Server, secrets, real verification delivery and frontend/API routing. Switching from SQLite to SQL Server selects a separate database; it does not transfer local test data automatically.
 
 ## Reproduction
 
@@ -32,23 +29,15 @@ dotnet test tests/ServiceConnect.Tests -c Release
 dotnet publish backend/ServiceConnect.Api -c Release
 cd frontend
 npm ci
-npm run build
 npm test
+npm run build
 ```
 
-To exercise SQL Server-specific workflow/locking checks, point TEST_SQLSERVER at a disposable supported SQL Server instance. Tests create uniquely named databases and delete those databases after running; the test login needs permission to create/drop them. Never use production credentials.
+For SQL Server tests, set TEST_SQLSERVER to a disposable instance. The tests create unique databases, apply SQL Server migrations and delete those test databases afterward. Use a test login with create/drop permissions, never production credentials:
 
 ```sh
 export TEST_SQLSERVER='Server=localhost,1433;User Id=sa;Password=YOUR_TEST_PASSWORD;Encrypt=True;TrustServerCertificate=True'
-dotnet test tests/ServiceConnect.Tests -c Release --filter FullyQualifiedName~WorkflowTests
+dotnet test tests/ServiceConnect.Tests -c Release
 ```
 
-CI's SQL Server credentials are disposable values for the isolated job container and are not application credentials. See GitHub Actions for the actual remote results; configuration alone does not mean a check passed.
-
-## Publishing status
-
-Published to [reachus-sreeni/service-connect, main](https://github.com/reachus-sreeni/service-connect) using GitHub CLI after device authorization. Existing repository history was preserved. The original connected integration rejected writes; GitHub CLI publishing succeeded.
-
-The first SQL Server CI run exposed a nested EF Core deadlock exception that bypassed conflict handling. The workflow now translates wrapped SQL error 1205 into a 409 response after rolling back the failed transaction. The concurrency test requires exactly one successful acceptance and a handled conflict for the other attempt.
-
-Current verification run: https://github.com/reachus-sreeni/service-connect/actions/runs/40619136660
+CI's SQL credentials are disposable values for its isolated container, not application credentials. See LOCAL_SETUP.md for the manual flow through test accounts, OTP outbox, approval, work completion and both reviews.

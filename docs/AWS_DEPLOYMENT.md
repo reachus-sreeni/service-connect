@@ -41,7 +41,7 @@ Run initialization from a temporary x64 host/container in the VPC (or a trusted 
 docker run --rm --env ConnectionStrings__SqlServer --env Jwt__Key "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/service-connect-api:$RELEASE_TAG" --init-db
 ```
 
-The variables must already be set securely in that shell. Avoid storing secrets in shell history or logs. The image's entrypoint passes `--init-db` to the app. This command uses `EnsureCreated` and must target a fresh database. For later schema changes create, review and apply EF migrations as a separate release step; `EnsureCreated` does not upgrade existing tables.
+The variables must already be set securely in that shell. Avoid storing secrets in shell history or logs. The image's entrypoint passes `--init-db` to the app. This command applies the SQL Server EF migrations and seeds the service catalog. It does not seed demo accounts. Use a fresh database for this expanded schema; the earlier MVP used EnsureCreated without migration history, so an existing MVP database needs a reviewed baseline/import migration. See DATABASE.md. Apply future reviewed migrations as a separate release step. Bootstrap an administrator with --create-admin as documented there.
 
 ## 3. Create App Runner
 
@@ -55,6 +55,12 @@ Set these runtime variables:
 | ConnectionStrings__SqlServer | Secrets Manager ARN for SQL connection string |
 | FrontendOrigin | Exact CloudFront/custom frontend origin, e.g. https://example.cloudfront.net |
 | ASPNETCORE_ENVIRONMENT | Production |
+| Database__Provider | SqlServer |
+| Database__AutoInitialize | false |
+| Database__SeedDemo | false |
+| Verification__Delivery | External |
+| Verification__Smtp__Host / Port / Username / Password / From | SMTP service settings; secret fields from Secrets Manager |
+| Verification__Twilio__AccountSid / AuthToken / From | SMS service settings; AuthToken from Secrets Manager |
 
 Grant the App Runner instance role `secretsmanager:GetSecretValue` for those specific secrets and `kms:Decrypt` if using a customer-managed KMS key. A reference to a secret is configured as a secret source, not as a plaintext value containing an ARN. Redeploy after rotating a referenced secret; existing instances do not automatically reload changed secret values.
 
@@ -89,7 +95,7 @@ Use an ACM certificate in us-east-1 if adding a custom CloudFront domain, and po
 
 Check the App Runner `/health` URL, then visit CloudFront. Register customer/provider accounts with disposable email addresses, create a request, submit and revise an estimate, and accept the latest revision. Confirm another customer cannot see the request, another provider cannot see the quote, and edits/second acceptance return 409 after acceptance. Check CloudWatch for errors and verify database persistence after restarting the API.
 
-`/health` reports process health only, so verify a database-backed operation as well. Run the SQL Server workflow tests against a disposable test server before promotion. Configure alarms for App Runner errors, RDS storage/connections and costs. Authentication throttling is local to each API instance and sees proxy IPs without trusted forwarded-header configuration; tune this before a multi-user launch.
+`/health` reports process health only, so verify a database-backed operation as well. Run the full test suite with TEST_SQLSERVER against a disposable test server before promotion. Configure SMTP and Twilio and test contact verification with real delivery before inviting real users. Configure alarms for App Runner errors, RDS storage/connections and costs. Authentication throttling is local to each API instance and sees proxy IPs without trusted forwarded-header configuration; tune this before a multi-user launch.
 
 ## Rollback and cleanup
 

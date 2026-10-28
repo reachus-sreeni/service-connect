@@ -1,68 +1,20 @@
-# Run Service Connect on a Mac
+# Local Mac setup
 
-## 1. Install prerequisites
+## Prerequisites
 
-Open Terminal. Check Git first:
+Install Node.js 22 LTS (22.22.3+) from https://nodejs.org/en/download and .NET 10 SDK from https://dotnet.microsoft.com/download/dotnet/10.0. Choose Arm64 on Apple Silicon. Check `node --version`, `npm --version` and `dotnet --info` in Terminal.
 
-```sh
-git --version
-```
-
-If missing, run `xcode-select --install`, complete Apple's prompts, then check again. Install Node.js 22 LTS (22.22.3 or newer) from https://nodejs.org/en/download and the .NET 10 SDK from https://dotnet.microsoft.com/download/dotnet/10.0. Choose Arm64 for Apple Silicon, x64 for an Intel Mac. Reopen Terminal, then verify:
-
-```sh
-node --version
-npm --version
-dotnet --info
-```
-
-Clone the published repository:
+For Git, run `git --version`; if unavailable run `xcode-select --install` and complete Apple's installer. See [Git instructions](GITHUB.md).
 
 ```sh
 git clone https://github.com/reachus-sreeni/service-connect.git
 cd service-connect
-```
-
-## 2. Choose a SQL Server
-
-**Apple Silicon:** SQL Server Linux container images are x64 and ARM emulation is not officially supported. Use a remote SQL Server on a supported x64 Linux/Windows machine or an AWS RDS SQL Server instance. For private RDS, connect through a VPN or an SSH/SSM tunnel from a VPC host; do not open port 1433 to the internet. The API runs natively on an Arm64 Mac. SQLite is only used by tests, not as a replacement for the application's SQL Server database.
-
-**Intel Mac:** install and start Docker Desktop, then from the repository root:
-
-```sh
-cp .env.example .env
-```
-
-Edit `.env` and replace its placeholder with a strong SQL Server password. Then:
-
-```sh
-docker compose up -d sqlserver
-docker compose logs -f sqlserver
-```
-
-Wait for “SQL Server is now ready for client connections,” then press Ctrl+C to stop viewing logs (the database keeps running). Developer edition is for development only. Database files persist in the `sql-data` volume.
-
-## 3. Configure and initialize the API
-
-In the same Terminal, set the connection string for your database. This example is for the local development container. Replace the password. For a remote server use its hostname, a suitable database user, `Encrypt=True` and `TrustServerCertificate=False` with a valid server certificate.
-
-```sh
-export ConnectionStrings__SqlServer='Server=localhost,1433;Database=ServiceConnect;User Id=sa;Password=YOUR_LOCAL_PASSWORD;Encrypt=True;TrustServerCertificate=True'
-export Jwt__Key="$(openssl rand -base64 48)"
-export FrontendOrigin='http://localhost:4200'
-export ASPNETCORE_URLS='http://localhost:5000'
-export DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
-dotnet run --project backend/ServiceConnect.Api -- --init-db
 dotnet run --project backend/ServiceConnect.Api
 ```
 
-The initialization command creates a new database schema; the account needs database creation/schema permissions. For production use a separate initialization identity and restrict the runtime identity to application tables. The API fails at startup without a JWT key of at least 32 bytes. Keep environment settings in your Terminal or an ignored private configuration file. Do not commit secrets.
+The Local launch profile sets Development and localhost:5000. Default local settings select SQLite, apply migrations, create a stable local JWT key, and seed synthetic accounts and jobs if the account store is empty. This works on Apple Silicon without Docker or a remote SQL Server.
 
-Check http://localhost:5000/health (process health; it does not check the database).
-
-## 4. Start Angular in a second Terminal
-
-From the project root:
+In a second Terminal, from the repository root:
 
 ```sh
 cd frontend
@@ -70,24 +22,54 @@ npm ci
 npm start
 ```
 
-Open http://localhost:4200. The development proxy forwards `/api` to localhost:5000. API and frontend must both be running. Use localhost rather than a LAN address.
+Visit http://localhost:4200. The frontend proxies `/api` to the local API. Check http://localhost:5000/health for process health.
 
-## 5. Exercise the workflow
+## Where local data goes
 
-1. Register a Customer with a password of at least 12 characters. Post a request.
-2. In a separate browser/private window register a Provider. Open the request and submit an estimate.
-3. Revise the estimate; the same estimate keeps its history.
-4. In the customer window refresh, compare and accept the current revision.
-5. Refresh the provider window: further edits are closed. A second acceptance is rejected by the server.
+Relative to the repository root:
 
-Create another provider to compare multiple estimates. Providers see only their own estimates; a customer sees all estimates for their own requests. No payment information is collected.
+- `backend/ServiceConnect.Api/.local/service-connect.db`: SQLite database, including accounts, password hashes, verification state, providers, services, requests, quotes, reviews and activity.
+- `backend/ServiceConnect.Api/.local/outbox/`: JSON test messages with channel, destination, challenge ID and verification code. No real messages are sent in LocalOutbox mode.
+- `backend/ServiceConnect.Api/.local/jwt.key`: generated local signing key.
 
-## Troubleshooting
+These files are private development data, excluded from Git and Docker. Keep this directory on your machine. SQLite data persists across API restarts. The outbox is restricted to Development; Production defaults to external delivery. Old outbox files can remain, but codes expire after ten minutes and only the current unused challenge is valid. Do not share screenshots/files containing real verification codes or keys.
 
-- Database connection fails: verify the hostname, port, credentials, network tunnel and SQL Server readiness.
-- Login/register fails with 429: wait a minute; authentication is limited to 10 requests per minute per client IP per API instance.
-- 409 after a revision/acceptance: refresh before retrying; another action changed the request.
-- Browser reports 502/proxy error: check that the API is running on port 5000.
-- Stop API/UI with Ctrl+C; stop local SQL with `docker compose stop`. Do not delete the database volume unless you intend to erase all data.
+To view codes while testing, open the folder:
 
-If npm 10 fails while resolving optional peers, update npm with `npm install -g npm@11`, then retry `npm ci`. Angular's disk build cache is disabled in this project because its native cache library crashed on the development Mac; this does not affect the deployed frontend.
+```sh
+open backend/ServiceConnect.Api/.local/outbox
+```
+
+Open the newest JSON matching the account/channel you just requested. Enter its six-digit `code` in the application. It is never returned by a normal API response.
+
+## Suggested manual tests
+
+All seeded users use `Local-Demo-Only-2026!`. See the README for accounts.
+
+1. Sign in as `alex@example.test`. Inspect the four sample jobs, existing estimates, revisions, history and completed feedback.
+2. Use a private window for `morgan@example.test`. For the accepted sample job, choose **Mark work done**. The job becomes AwaitingCustomerReview.
+3. Back as Alex, refresh. Confirm completion with all 1–5 ratings and written feedback. Completion without feedback must fail. The job then becomes Completed.
+4. As Morgan, refresh and rate the customer's communication, cooperation and readiness. Repeated feedback is rejected.
+5. Sign in as `casey@example.test`. Request email and phone codes, read each local outbox file and verify both contacts. Casey still cannot quote until approved.
+6. Sign in as `admin@example.test`; review Casey's qualifications, enter review notes and approve. Refresh Casey's screen and submit an estimate to an open request.
+7. Register a new Customer or Provider. Email and international phone are required. New contacts begin unverified. New providers also need business name/qualifications and begin Pending.
+8. Try `jamie@example.test` against Alex's jobs: Jamie should not see Alex's private requests or activity. Competing providers must not see each other's estimates.
+9. Stop/restart the API. Confirm your account changes, job states, quotes and reviews remain.
+
+Phone numbers must be in international format, for example `+12025550123`; formatting characters and spaces are rejected. Demo contact details are synthetic. Contact information is not editable in this version; adding contact changes will require clearing verification and re-verifying the new destination.
+
+## Resetting test data
+
+Stop the API first. Back up/move the entire `.local` folder outside the project if you want to retain it, then restart with the folder absent. A fresh database/key/demo dataset will be created. This is an intentional manual reset; the app never resets your test data automatically. Do not use these reset steps on a real database.
+
+## Configuration and troubleshooting
+
+- `Database__Provider=Sqlite` selects the file database; `ConnectionStrings__Sqlite` can override its path. The default is based on the API project content root.
+- Set `Database__SeedDemo=false` before a fresh start to disable demo accounts. Changing this after seeding does not delete them.
+- Use `Demo__Password` before the first seed to choose a different shared demo password; changing it later does not reset accounts.
+- The development launch profile disables JSON configuration file watchers to avoid the Mac environment's watcher restriction. Restart after configuration changes.
+- Angular's disk cache is disabled because its native cache library crashed on the development Mac.
+- Authentication and verification endpoints are rate limited. Codes have a 60-second resend cooldown and a five-per-contact-per-hour limit. Wait when a limit is reached.
+- A 409 means data changed or an action is not valid for the current state; refresh and review it before retrying.
+- A 503 on verification means delivery failed; local mode requires Development and a writable `.local/outbox` folder. External mode requires the settings in the verification guide.
+- SQL Server is a separate opt-in mode. See [database configuration](DATABASE.md); switching the provider does not transfer local data.
