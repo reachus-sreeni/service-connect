@@ -13,10 +13,13 @@ export type {RequestItem} from './models';
 export class AppComponent {
  constructor(private client:ServiceApiClient=new ServiceApiClient()){}
  view=signal<'discover'|'requests'|'account'|'admin'|'new-request'>('discover');
- searchTerm=signal('');areaSearch='';activeCategoryId=signal('');chosenOptionId='';pendingRequest=false;showOtherCategories=false;
+ searchTerm=signal('');areaSearch='';activeCategoryId=signal('');chosenOptionId='';pendingRequest=false;catalogGroup=signal('Popular');
  requestFilter='all';requestSearch='';detailTab=signal<'estimates'|'activity'>('estimates');
  catalogLoading=signal(false);catalogError=signal('');
- visibleCategories=computed(()=>filterCatalog(this.services(),this.searchTerm()));
+ visibleCategories=computed(()=>filterCatalog(this.services(),this.searchTerm(),this.catalogGroup()));
+ familyNames=computed(()=>[...new Set(this.services().map(c=>c.groupName||'Other services'))].sort());
+ optionCount(){return this.services().reduce((total,c)=>total+c.options.length,0);}
+ chooseFamily(family:string){this.catalogGroup.set(family);this.searchTerm.set('');this.activeCategoryId.set('');}
  activeCategory=computed(()=>this.services().find(c=>c.id===this.activeCategoryId())||null);
  ngOnInit(){void this.loadCatalog();}
  async loadCatalog(){this.catalogLoading.set(true);try{this.services.set(await this.api('/services'));this.catalogError.set('');}catch{this.catalogError.set('We couldn’t load the services. Please try again.');}finally{this.catalogLoading.set(false);}}

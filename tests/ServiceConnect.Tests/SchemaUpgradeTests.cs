@@ -19,7 +19,7 @@ public class SchemaUpgradeTests {
    await db.Database.ExecuteSqlInterpolatedAsync($"INSERT INTO [Requests] ([Id],[CustomerId],[ServiceId],[Title],[Description],[Location],[Status],[CreatedAt],[Version]) VALUES ({request},{customer},{category},{"Keep my existing project"},{"Preserved details"},{"Demo area"},{"Open"},{now},{version})");
    await db.Database.MigrateAsync();await DatabaseSetup.Catalog(db);
    var restored=await db.Requests.SingleAsync();Assert.Equal(request,restored.Id);Assert.Equal("Keep my existing project",restored.Title);Assert.Null(restored.ServiceOptionId);
-   Assert.Equal(customer,(await db.Accounts.SingleAsync()).Id);Assert.Equal(27,await db.ServiceOptions.CountAsync());
+   Assert.Equal(customer,(await db.Accounts.SingleAsync()).Id);Assert.Equal(227,await db.ServiceOptions.CountAsync());
   } finally { await db.Database.EnsureDeletedAsync(); }
  }
 }

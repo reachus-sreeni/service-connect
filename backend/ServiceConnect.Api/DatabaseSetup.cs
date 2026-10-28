@@ -7,60 +7,7 @@ public static class DatabaseSetup
 {
     public static readonly Guid GeneralServiceId = Guid.Parse("10000000-0000-0000-0000-000000000001");
     public static readonly Guid HingeRepairOptionId = Guid.Parse("40000000-0000-0000-0000-000000000001");
-    public static async Task Catalog(AppDb db)
-    {
-        var catalog = new[] {
-            ("Carpentry", "Furniture, doors and everyday woodwork", true, new[] {
-                ("Door & hinge repair", "Repair loose hinges, sticking doors or cabinet doors."),
-                ("Furniture assembly", "Assembly of desks, beds and other flat-pack furniture."),
-                ("Shelf installation", "Mount and secure shelves in your home or office."),
-                ("Cabinet repair", "Adjust drawers, replace handles and repair cabinet fittings."),
-                ("Custom woodwork consultation", "Describe a custom project and request an assessment.") }),
-            ("Plumbing", "Leaks, fixtures and drainage", true, new[] {
-                ("Leak repair", "Assess and repair leaking taps, pipes or connections."),
-                ("Drain unblocking", "Help with a slow or blocked sink, shower or drain."),
-                ("Tap & fixture installation", "Install or replace taps, shower fittings and fixtures."),
-                ("Toilet repair", "Repair flush mechanisms, leaks or loose fittings."),
-                ("Plumbing inspection", "Request an assessment when the cause is unclear.") }),
-            ("Electrical", "Lighting and electrical maintenance", false, new[] {
-                ("Lighting installation", "Install or replace light fixtures."),
-                ("Electrical inspection", "Describe an electrical issue for a qualified provider.") }),
-            ("Cleaning", "A fresh start for every space", true, new[] {
-                ("Home deep cleaning", "Detailed cleaning of living spaces, surfaces and fixtures."),
-                ("Kitchen cleaning", "Cleaning of kitchen surfaces, cupboards and appliances."),
-                ("Bathroom cleaning", "Deep cleaning of bathroom surfaces and fixtures."),
-                ("Move-in / move-out cleaning", "Prepare a property before or after a move."),
-                ("Upholstery cleaning", "Describe the sofas, chairs or fabrics that need care.") }),
-            ("Gardening", "Healthy gardens and welcoming outdoor spaces", true, new[] {
-                ("Lawn care", "Mowing, edging and routine lawn maintenance."),
-                ("Planting & garden beds", "Planting, soil preparation and garden-bed care."),
-                ("Hedge trimming", "Trim and shape hedges and small shrubs."),
-                ("Seasonal garden cleanup", "Leaf removal, weeding and seasonal outdoor tidying."),
-                ("Irrigation assessment", "Assess watering systems and irrigation problems.") }),
-            ("Automotive Service", "Everyday vehicle care and assessment", true, new[] {
-                ("Vehicle inspection", "Describe your vehicle and request a condition assessment."),
-                ("Battery check & replacement", "Diagnose battery problems and discuss replacement."),
-                ("Oil & filter service", "Request routine oil and filter maintenance."),
-                ("Interior detailing", "Cleaning and detailing of the vehicle interior."),
-                ("Diagnostic assessment", "Share symptoms or warning lights for an initial diagnosis.") })
-        };
-        for (var i = 0; i < catalog.Length; i++)
-        {
-            var (name, description, featured, options) = catalog[i];
-            var id = Guid.Parse($"10000000-0000-0000-0000-{i+1:D12}");
-            var category = await db.Services.FindAsync(id);
-            if (category is null) { category = new ServiceCategory { Id = id }; db.Services.Add(category); }
-            category.Name = name; category.Description = description; category.IsFeatured = featured;
-            for (var j = 0; j < options.Length; j++)
-            {
-                var optionId = Guid.Parse($"40000000-0000-0000-0000-{i*100+j+1:D12}");
-                if (!await db.ServiceOptions.AnyAsync(x => x.Id == optionId)) db.ServiceOptions.Add(new ServiceOption {
-                    Id = optionId, ServiceId = id, Name = options[j].Item1, Description = options[j].Item2, SortOrder = j
-                });
-            }
-        }
-        await db.SaveChangesAsync();
-    }
+    public static Task Catalog(AppDb db) => CatalogConfiguration.Apply(db);
     public static async Task Demo(AppDb db, IPasswordHasher<Account> hasher, string password)
     {
         // Seed once into an empty account store. Restarts never overwrite user testing.

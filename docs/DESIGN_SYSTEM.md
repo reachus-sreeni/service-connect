@@ -37,7 +37,7 @@ The UI uses Angular standalone components, signals, HTML5 and Sass. It does not 
 - **Resume intent:** choosing a service before sign-in preserves category/option choice through authentication. Sensitive account data and tokens are not written to browser storage.
 - **Clear next action:** job status controls whether to quote, mark done, confirm completion or submit feedback. Server-side authorization/state checks remain authoritative.
 - **Honest estimates:** no invented fixed prices, availability, provider ratings or booking counts. Service Connect uses provider quotes and no payments.
-- **Modernize without erasing data:** categories retain stable IDs, old custom requests can retain a null option, and migrations preserve existing rows. Electrical remains available under Other services for compatibility.
+- **Modernize without erasing data:** categories retain stable IDs, old custom requests can retain a null option, and migrations preserve existing rows. Electrical remains available through Home repairs, All services and search. The expanded catalog is grouped by family and backed by a single JSON definition file.
 
 ## Reference study
 

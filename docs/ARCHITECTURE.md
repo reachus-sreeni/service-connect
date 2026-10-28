@@ -12,7 +12,7 @@ Angular uses relative `/api` URLs and an in-memory JWT. The ASP.NET Core API val
 | GET | /api/me | Own contact verification flags and provider profile |
 | POST | /api/me/verification/{email or phone}/send | Authenticated; issue code to own contact; returns challengeId/expiry only |
 | POST | /api/me/verification/{email or phone}/confirm | Own challengeId and six-digit code |
-| GET | /api/services | Public category/option catalog; no account data |
+| GET | /api/services | Public category/option catalog with service families; no account data |
 | GET | /api/admin/providers | Admin review queue/profile details |
 | POST | /api/admin/providers/{id}/decision | Admin; approve boolean and required notes |
 | GET | /api/requests | Own requests; providers see open plus assigned jobs; admins see all; latest 200 |

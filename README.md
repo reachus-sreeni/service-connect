@@ -39,7 +39,9 @@ Examples cover Open, Accepted, AwaitingCustomerReview and Completed requests, es
 
 ## UI/UX and portfolio walkthrough
 
-Browse before signing in, search within service options, then use the guided request flow. The featured catalog contains Plumbing, Gardening, Cleaning, Carpentry and Automotive Service, each with five selectable services. Electrical remains under Other services for existing records. Catalog changes keep stable IDs and preserve older requests without an option.
+Browse before signing in, search service options, then use the guided request flow. The catalog contains **34 categories and 227 options**, grouped into nine families. All 69 named offerings in the reviewed Urban Company India index are mapped into these configurable, location-neutral definitions, alongside the requested Gardening and Automotive services. Popular retains a short list; All services, family filters and search expose the complete catalog.
+
+[Catalog configuration, category inventory and source coverage](docs/CATALOG.md)
 
 - [Design system and component contracts](docs/DESIGN_SYSTEM.md)
 - [Accessibility implementation and audit plan](docs/ACCESSIBILITY.md)

@@ -272,6 +272,11 @@ namespace ServiceConnect.Api.Migrations.SqlServer
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("GroupName")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
+
                     b.Property<bool>("IsFeatured")
                         .HasColumnType("bit");
 

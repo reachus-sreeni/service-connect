@@ -7,7 +7,7 @@ Both SQLite and SQL Server use the same domain model and independent EF migratio
 | Accounts | Customer, Provider or Admin; unique normalized email and international phone; password hash, email/phone verification flags, concurrency version |
 | Providers | One-to-one account profile; business name, qualifications, Pending/Approved/Rejected, last reviewer/time/notes and concurrency version |
 | ProviderDecisions | Append-only administrator decisions; provider profile, administrator, status, notes and timestamp |
-| Services | Unique service-category name/description and featured-discovery flag; referenced by requests |
+| Services | Unique service-category name/description, service family and featured-discovery flag; referenced by requests |
 | ServiceOptions | Category foreign key, scoped option name, description and display order; unique (category, name) |
 | Requests | Customer, service and optional service-option foreign keys; title, description, area, lifecycle status, accepted estimate ID, completion time and concurrency version |
 | Estimates | Provider and request foreign keys; one row per (request, provider), current revision/amount/notes |
@@ -35,4 +35,4 @@ History/reviews are visible to the customer, accepted provider and administrator
 
 ## Sample dataset
 
-Local seed creates six synthetic accounts (one administrator, two customers, three providers), six service categories (five featured), 27 service options, four requests across the lifecycle, competing/revised estimates and completed feedback. All demo contact flags/approvals are simulated. The seed runs only for an empty account store and never resets manual changes on restart. It is disabled for SQL Server and non-Development environments.
+Local seed creates six synthetic accounts (one administrator, two customers, three providers), 34 service categories (five in Popular), 227 service options, four requests across the lifecycle, competing/revised estimates and completed feedback. All demo contact flags/approvals are simulated. The seed runs only for an empty account store and never resets manual changes on restart. It is disabled for SQL Server and non-Development environments.

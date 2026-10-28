@@ -1,5 +1,5 @@
 export interface ServiceOption {id:string;name:string;description:string;}
-export interface ServiceCategory {id:string;name:string;description:string;isFeatured?:boolean;options:ServiceOption[];}
+export interface ServiceCategory {id:string;name:string;description:string;isFeatured?:boolean;groupName?:string;options:ServiceOption[];}
 export interface RequestDraft {serviceId:string;serviceOptionId:string;title:string;description:string;location:string;}
 export interface RequestItem {id:string;title:string;description:string;location:string;acceptedEstimateId:string|null;status?:string;serviceId?:string;serviceOptionId?:string|null;}
 export interface Estimate {id:string;revision:number;amount:number;notes:string;providerName:string;history:{number:number;amount:number;notes:string}[];}

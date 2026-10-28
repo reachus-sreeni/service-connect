@@ -5,9 +5,9 @@ Updated October 27, 2026 (America/Chicago). GitHub main is the source of truth; 
 ## Local checks for the expanded application
 
 - ASP.NET Core build and Release publish succeeded.
-- Eighteen backend tests passed, covering required phone/email, contact verification, code replay/expiry/attempt limits, administrator approval gates, customer/provider isolation, estimates, completion and two-way reviews.
+- Nineteen backend tests passed, covering required phone/email, contact verification, code replay/expiry/attempt limits, administrator approval gates, customer/provider isolation, estimates, completion and two-way reviews.
 - The local file test applies SQLite migrations, seeds all lifecycle states, edits a request, closes/reopens the database and verifies persistence without duplicate seeding.
-- Eight Angular component tests passed, including required provider registration fields, verification/approval gates and mandatory completion feedback.
+- Nine Angular component tests passed, including required provider registration fields, verification/approval gates and mandatory completion feedback.
 - Angular production build passed.
 - The actual Development API started with SQLite migrations and synthetic demo data, without SQL Server or Docker.
 - A real browser signed in as the demo customer and displayed persisted requests, completed feedback in both directions and service history.
@@ -49,3 +49,7 @@ The redesign adds five featured categories with five options each, an additional
 The new full-stack Playwright suite contains seven scenarios with axe checks tagged for WCAG 2.1 A/AA. Local execution starts the isolated application correctly but macOS denies Chromium launch, so local automated-browser success is not claimed. The GitHub frontend job installs Chromium on Linux, runs the suite and uploads its report. JAWS, complete manual conformance testing and Azure DevOps execution remain unverified; see ACCESSIBILITY.md and INTERVIEW_WALKTHROUGH.md.
 
 The initial Linux axe run caught a visible-label/accessibility-name mismatch on the brand control. The brand now uses its visible content for its accessible name, and service-option action names include the visible “Request estimates” label plus the option name. The wizard error-summary heading also follows the page heading hierarchy.
+
+## Expanded configurable catalog
+
+The catalog now has 34 categories, 227 options and nine service families. Its JSON source map covers all 69 named offerings in the reviewed India index (68 representative detail pages retrieved; one microwave consultation page is index-only). Tests check source-map resolution, idempotent synchronization and preservation of existing requests. A browser scenario verifies All services, family filtering and search with axe checks. Prices, city availability, branding and every city-specific SKU are not imported. See CATALOG.md for the complete audit.

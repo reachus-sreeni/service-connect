@@ -1,0 +1,2196 @@
+{
+  "version": 1,
+  "locationNeutral": true,
+  "reviewedOn": "2026-10-27",
+  "sourceIndex": "https://www.urbancompany.com/",
+  "scope": "All 69 named offerings in the public India index, consolidated across city, partner and tier variants; not a copy of every city-specific SKU, price or availability rule.",
+  "categories": [
+    {
+      "key": "carpentry",
+      "id": "10000000-0000-0000-0000-000000000001",
+      "name": "Carpentry",
+      "groupName": "Home repairs",
+      "description": "Woodwork, fittings and furniture repairs",
+      "isFeatured": true,
+      "options": [
+        {
+          "id": "40000000-0000-0000-0000-000000000001",
+          "name": "Door & hinge repair",
+          "description": "Repair loose hinges, sticking doors or cabinet doors.",
+          "key": "door-hinge-repair"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000002",
+          "name": "Furniture assembly",
+          "description": "Assembly of desks, beds and other flat-pack furniture.",
+          "key": "furniture-assembly"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000003",
+          "name": "Shelf installation",
+          "description": "Mount and secure shelves in your home or office.",
+          "key": "shelf-installation"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000004",
+          "name": "Cabinet repair",
+          "description": "Adjust drawers, replace handles and repair cabinet fittings.",
+          "key": "cabinet-repair"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000005",
+          "name": "Custom woodwork consultation",
+          "description": "Describe a custom project and request an assessment.",
+          "key": "custom-woodwork-consultation"
+        },
+        {
+          "key": "wooden-door-installation",
+          "id": "17bd6d7a-ede7-5add-ba54-dc06d6d58569",
+          "name": "Wooden door installation",
+          "description": "Describe your requirements for wooden door installation and request a provider estimate."
+        },
+        {
+          "key": "drawer-cupboard-repairs",
+          "id": "d5a5cbd3-9f31-5dcf-b07a-ae45dbc70790",
+          "name": "Drawer & cupboard repairs",
+          "description": "Describe your requirements for drawer & cupboard repairs and request a provider estimate."
+        },
+        {
+          "key": "mirror-decor-mounting",
+          "id": "d45c2dc7-b488-5134-9bc2-db3a0bc89acb",
+          "name": "Mirror & decor mounting",
+          "description": "Describe your requirements for mirror & decor mounting and request a provider estimate."
+        },
+        {
+          "key": "curtain-window-fittings",
+          "id": "d97893ad-a933-5fcd-adf5-96aeceac9213",
+          "name": "Curtain & window fittings",
+          "description": "Describe your requirements for curtain & window fittings and request a provider estimate."
+        },
+        {
+          "key": "door-lock-replacement",
+          "id": "5998ce81-572f-5601-a807-4632ef6479fa",
+          "name": "Door lock replacement",
+          "description": "Describe your requirements for door lock replacement and request a provider estimate."
+        },
+        {
+          "key": "kitchen-fittings",
+          "id": "3aff3434-bb19-58b4-b48b-39988934733d",
+          "name": "Kitchen fittings",
+          "description": "Describe your requirements for kitchen fittings and request a provider estimate."
+        },
+        {
+          "key": "bathroom-fittings-mirrors",
+          "id": "46f98e65-d481-569d-8e05-429a03781ed5",
+          "name": "Bathroom fittings & mirrors",
+          "description": "Describe your requirements for bathroom fittings & mirrors and request a provider estimate."
+        },
+        {
+          "key": "balcony-fittings",
+          "id": "2e6f2dfe-c517-58dd-95b6-3035bb466e46",
+          "name": "Balcony fittings",
+          "description": "Describe your requirements for balcony fittings and request a provider estimate."
+        },
+        {
+          "key": "furniture-repair",
+          "id": "d940a741-d904-51c4-a258-149b486ce03e",
+          "name": "Furniture repair",
+          "description": "Describe your requirements for furniture repair and request a provider estimate."
+        },
+        {
+          "key": "carpentry-consultation",
+          "id": "363119eb-29bc-5439-9039-26948ea3165c",
+          "name": "Carpentry consultation",
+          "description": "Describe your requirements for carpentry consultation and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "plumbing",
+      "id": "10000000-0000-0000-0000-000000000002",
+      "name": "Plumbing",
+      "groupName": "Home repairs",
+      "description": "Water fixtures, drainage and plumbing assessments",
+      "isFeatured": true,
+      "options": [
+        {
+          "id": "40000000-0000-0000-0000-000000000101",
+          "name": "Leak repair",
+          "description": "Assess and repair leaking taps, pipes or connections.",
+          "key": "leak-repair"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000102",
+          "name": "Drain unblocking",
+          "description": "Help with a slow or blocked sink, shower or drain.",
+          "key": "drain-unblocking"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000103",
+          "name": "Tap & fixture installation",
+          "description": "Install or replace taps, shower fittings and fixtures.",
+          "key": "tap-fixture-installation"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000104",
+          "name": "Toilet repair",
+          "description": "Repair flush mechanisms, leaks or loose fittings.",
+          "key": "toilet-repair"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000105",
+          "name": "Plumbing inspection",
+          "description": "Request an assessment when the cause is unclear.",
+          "key": "plumbing-inspection"
+        },
+        {
+          "key": "bath-shower-repair",
+          "id": "96bfb31d-ba4a-5c32-bacc-6c13bed67e62",
+          "name": "Bath & shower repair",
+          "description": "Describe your requirements for bath & shower repair and request a provider estimate."
+        },
+        {
+          "key": "bathroom-accessory-installation",
+          "id": "7b4c5da6-decb-5785-ac8a-f4a52af15810",
+          "name": "Bathroom accessory installation",
+          "description": "Describe your requirements for bathroom accessory installation and request a provider estimate."
+        },
+        {
+          "key": "basin-sink-repair",
+          "id": "3dab0c19-6b60-5700-a414-25f00f43a5d3",
+          "name": "Basin & sink repair",
+          "description": "Describe your requirements for basin & sink repair and request a provider estimate."
+        },
+        {
+          "key": "appliance-water-connections",
+          "id": "66036339-b55e-5dfa-890f-7353339c82f0",
+          "name": "Appliance water connections",
+          "description": "Describe your requirements for appliance water connections and request a provider estimate."
+        },
+        {
+          "key": "water-tank-maintenance",
+          "id": "4dec280f-5dab-5ba1-bec0-2164de73ca8f",
+          "name": "Water tank maintenance",
+          "description": "Describe your requirements for water tank maintenance and request a provider estimate."
+        },
+        {
+          "key": "water-motor-assessment",
+          "id": "24059f71-46e7-54a6-9e3e-0e8eb712a3f5",
+          "name": "Water motor assessment",
+          "description": "Describe your requirements for water motor assessment and request a provider estimate."
+        },
+        {
+          "key": "plumbing-consultation",
+          "id": "132c5988-e6f5-500d-8727-460409f6bab0",
+          "name": "Plumbing consultation",
+          "description": "Describe your requirements for plumbing consultation and request a provider estimate."
+        },
+        {
+          "key": "post-flood-plumbing-assessment",
+          "id": "54ccf825-0f5b-5ad7-b438-10728ba2e300",
+          "name": "Post-flood plumbing assessment",
+          "description": "Describe your requirements for post-flood plumbing assessment and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "electrical",
+      "id": "10000000-0000-0000-0000-000000000003",
+      "name": "Electrical",
+      "groupName": "Home repairs",
+      "description": "Electrical fittings, wiring and installation work",
+      "isFeatured": false,
+      "options": [
+        {
+          "id": "40000000-0000-0000-0000-000000000201",
+          "name": "Lighting installation",
+          "description": "Install or replace light fixtures.",
+          "key": "lighting-installation"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000202",
+          "name": "Electrical inspection",
+          "description": "Describe an electrical issue for a qualified provider.",
+          "key": "electrical-inspection"
+        },
+        {
+          "key": "switch-socket-repair",
+          "id": "956f818b-96e5-53d5-9ecf-ead5157cd612",
+          "name": "Switch & socket repair",
+          "description": "Describe your requirements for switch & socket repair and request a provider estimate."
+        },
+        {
+          "key": "fan-installation-or-replacement",
+          "id": "74020d35-d73d-5778-9935-a0446df7325a",
+          "name": "Fan installation or replacement",
+          "description": "Describe your requirements for fan installation or replacement and request a provider estimate."
+        },
+        {
+          "key": "fan-uninstallation",
+          "id": "d1b66f8d-3aed-561c-9142-075ea08abddd",
+          "name": "Fan uninstallation",
+          "description": "Describe your requirements for fan uninstallation and request a provider estimate."
+        },
+        {
+          "key": "wiring-assessment",
+          "id": "974390c1-21c9-5ea2-939e-b93ed2f61e10",
+          "name": "Wiring assessment",
+          "description": "Describe your requirements for wiring assessment and request a provider estimate."
+        },
+        {
+          "key": "circuit-breaker-fuse-repair",
+          "id": "863cdfd3-da46-5844-89cb-ab5305adb980",
+          "name": "Circuit breaker & fuse repair",
+          "description": "Describe your requirements for circuit breaker & fuse repair and request a provider estimate."
+        },
+        {
+          "key": "doorbell-security-fittings",
+          "id": "0a0ec3dc-f7d3-53aa-9b46-d6a3e8c07f50",
+          "name": "Doorbell & security fittings",
+          "description": "Describe your requirements for doorbell & security fittings and request a provider estimate."
+        },
+        {
+          "key": "tv-speaker-installation",
+          "id": "bcff1b2a-c203-5bdc-ad83-3216b4b156a9",
+          "name": "TV & speaker installation",
+          "description": "Describe your requirements for tv & speaker installation and request a provider estimate."
+        },
+        {
+          "key": "ev-charging-plug-installation",
+          "id": "c65b07ac-5a2c-5c63-9f9c-a660859aa6d1",
+          "name": "EV charging plug installation",
+          "description": "Describe your requirements for ev charging plug installation and request a provider estimate."
+        },
+        {
+          "key": "festive-lighting-installation",
+          "id": "a25f494b-2ca5-5808-9cca-fd3712e8175c",
+          "name": "Festive lighting installation",
+          "description": "Describe your requirements for festive lighting installation and request a provider estimate."
+        },
+        {
+          "key": "festive-lighting-removal",
+          "id": "9aa03cb6-3eb1-5e3f-b568-63057a009af0",
+          "name": "Festive lighting removal",
+          "description": "Describe your requirements for festive lighting removal and request a provider estimate."
+        },
+        {
+          "key": "post-flood-electrical-assessment",
+          "id": "18848e87-08c1-53bf-92af-ec8dfa051cee",
+          "name": "Post-flood electrical assessment",
+          "description": "Describe your requirements for post-flood electrical assessment and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "cleaning",
+      "id": "10000000-0000-0000-0000-000000000004",
+      "name": "Cleaning",
+      "groupName": "Cleaning & hygiene",
+      "description": "Whole-home, room-by-room and routine cleaning",
+      "isFeatured": true,
+      "options": [
+        {
+          "id": "40000000-0000-0000-0000-000000000301",
+          "name": "Home deep cleaning",
+          "description": "Detailed cleaning of living spaces, surfaces and fixtures.",
+          "key": "home-deep-cleaning"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000302",
+          "name": "Kitchen cleaning",
+          "description": "Cleaning of kitchen surfaces, cupboards and appliances.",
+          "key": "kitchen-cleaning"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000303",
+          "name": "Bathroom cleaning",
+          "description": "Deep cleaning of bathroom surfaces and fixtures.",
+          "key": "bathroom-cleaning"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000304",
+          "name": "Move-in / move-out cleaning",
+          "description": "Prepare a property before or after a move.",
+          "key": "move-in-move-out-cleaning"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000305",
+          "name": "Upholstery cleaning",
+          "description": "Describe the sofas, chairs or fabrics that need care.",
+          "key": "upholstery-cleaning"
+        },
+        {
+          "key": "apartment-deep-cleaning",
+          "id": "72083ab1-17dd-5b5b-9df8-b79edac0c36f",
+          "name": "Apartment deep cleaning",
+          "description": "Describe your requirements for apartment deep cleaning and request a provider estimate."
+        },
+        {
+          "key": "bungalow-duplex-cleaning",
+          "id": "aa56c049-b1d0-5bed-b694-e98852447478",
+          "name": "Bungalow & duplex cleaning",
+          "description": "Describe your requirements for bungalow & duplex cleaning and request a provider estimate."
+        },
+        {
+          "key": "room-by-room-cleaning",
+          "id": "6d85561d-18c3-5ea6-8042-4200b439ea47",
+          "name": "Room-by-room cleaning",
+          "description": "Describe your requirements for room-by-room cleaning and request a provider estimate."
+        },
+        {
+          "key": "bathroom-kitchen-cleaning-package",
+          "id": "9a60dc07-e05f-5c8e-8547-de32122738ab",
+          "name": "Bathroom & kitchen cleaning package",
+          "description": "Describe your requirements for bathroom & kitchen cleaning package and request a provider estimate."
+        },
+        {
+          "key": "custom-cleaning-package",
+          "id": "b0e5c753-9938-5eff-b02b-757ce23499bf",
+          "name": "Custom cleaning package",
+          "description": "Describe your requirements for custom cleaning package and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "bathroom-kitchen-cleaning",
+      "id": "dcbac109-3e8d-599a-8f94-f1c78bf2391f",
+      "name": "Bathroom & Kitchen Cleaning",
+      "groupName": "Cleaning & hygiene",
+      "description": "Focused cleaning for kitchens, bathrooms and smaller tasks",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "kitchen-deep-cleaning",
+          "id": "4b66bdc6-8cd2-50a7-b0f4-5601823c01ec",
+          "name": "Kitchen deep cleaning",
+          "description": "Describe your requirements for kitchen deep cleaning and request a provider estimate."
+        },
+        {
+          "key": "bathroom-deep-cleaning",
+          "id": "8d455e74-4167-5f6a-b43a-f0e4e994c518",
+          "name": "Bathroom deep cleaning",
+          "description": "Describe your requirements for bathroom deep cleaning and request a provider estimate."
+        },
+        {
+          "key": "weekly-bathroom-cleaning",
+          "id": "7177655a-b24c-50b4-bf97-87f07bfa5461",
+          "name": "Weekly bathroom cleaning",
+          "description": "Describe your requirements for weekly bathroom cleaning and request a provider estimate."
+        },
+        {
+          "key": "chimney-cleaning",
+          "id": "d0228b7c-ee98-5940-8dd6-6f61d5e0e121",
+          "name": "Chimney cleaning",
+          "description": "Describe your requirements for chimney cleaning and request a provider estimate."
+        },
+        {
+          "key": "kitchen-appliance-cleaning",
+          "id": "00a367df-edd5-5d3a-ba20-41c218ed3a98",
+          "name": "Kitchen appliance cleaning",
+          "description": "Describe your requirements for kitchen appliance cleaning and request a provider estimate."
+        },
+        {
+          "key": "cabinet-tile-cleaning",
+          "id": "68fab1ea-015e-58b4-b6a6-3a9ae95ea0bc",
+          "name": "Cabinet & tile cleaning",
+          "description": "Describe your requirements for cabinet & tile cleaning and request a provider estimate."
+        },
+        {
+          "key": "balcony-cleaning",
+          "id": "ff63e7e1-7b85-5082-be6b-24cb391088bd",
+          "name": "Balcony cleaning",
+          "description": "Describe your requirements for balcony cleaning and request a provider estimate."
+        },
+        {
+          "key": "small-area-cleaning",
+          "id": "d4ede767-a366-55e3-b769-a3e700154129",
+          "name": "Small-area cleaning",
+          "description": "Describe your requirements for small-area cleaning and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "furniture-cleaning",
+      "id": "cdef43bb-b339-5d1f-b469-9d0b3229ad1b",
+      "name": "Upholstery & Furniture Cleaning",
+      "groupName": "Cleaning & hygiene",
+      "description": "Care for sofas, carpets, curtains and household furnishings",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "sofa-cleaning",
+          "id": "667a7670-2bbd-5c22-a79b-6bacc0a58bb4",
+          "name": "Sofa cleaning",
+          "description": "Describe your requirements for sofa cleaning and request a provider estimate."
+        },
+        {
+          "key": "carpet-cleaning",
+          "id": "7f2276dc-1736-5594-95c2-c777297a115f",
+          "name": "Carpet cleaning",
+          "description": "Describe your requirements for carpet cleaning and request a provider estimate."
+        },
+        {
+          "key": "curtain-cleaning",
+          "id": "56997c10-df5b-5bfe-8626-376dc146be13",
+          "name": "Curtain cleaning",
+          "description": "Describe your requirements for curtain cleaning and request a provider estimate."
+        },
+        {
+          "key": "mattress-bed-cleaning",
+          "id": "b4deddb9-9382-5465-adb6-410f721bfdd0",
+          "name": "Mattress & bed cleaning",
+          "description": "Describe your requirements for mattress & bed cleaning and request a provider estimate."
+        },
+        {
+          "key": "cushion-cleaning",
+          "id": "e714ae4b-98f6-5fb0-9fda-28927770156f",
+          "name": "Cushion cleaning",
+          "description": "Describe your requirements for cushion cleaning and request a provider estimate."
+        },
+        {
+          "key": "dining-table-chair-cleaning",
+          "id": "e3ae78ec-8638-52bf-9e81-593f42b476d6",
+          "name": "Dining table & chair cleaning",
+          "description": "Describe your requirements for dining table & chair cleaning and request a provider estimate."
+        },
+        {
+          "key": "other-furniture-cleaning",
+          "id": "8e5b49ec-b8b8-566e-a301-198699089500",
+          "name": "Other furniture cleaning",
+          "description": "Describe your requirements for other furniture cleaning and request a provider estimate."
+        },
+        {
+          "key": "stain-protection-service",
+          "id": "bab5a934-39b0-5211-a7d7-cc39d296b9fc",
+          "name": "Stain-protection service",
+          "description": "Describe your requirements for stain-protection service and request a provider estimate."
+        },
+        {
+          "key": "window-fan-cleaning",
+          "id": "6c12ac1f-8698-510a-96c0-50dbb64049df",
+          "name": "Window & fan cleaning",
+          "description": "Describe your requirements for window & fan cleaning and request a provider estimate."
+        },
+        {
+          "key": "living-room-cleaning",
+          "id": "c8ac7c4d-c6a8-5611-98ee-ae541edeab3b",
+          "name": "Living room cleaning",
+          "description": "Describe your requirements for living room cleaning and request a provider estimate."
+        },
+        {
+          "key": "bedroom-cleaning",
+          "id": "2aac252b-adc2-538a-92c7-5990c3326e2f",
+          "name": "Bedroom cleaning",
+          "description": "Describe your requirements for bedroom cleaning and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "disinfection",
+      "id": "125d7ae9-5ab7-5d8b-9b68-9dca2f827da7",
+      "name": "Disinfection Services",
+      "groupName": "Cleaning & hygiene",
+      "description": "Disinfection requests for residential, commercial and vehicle spaces",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "home-disinfection",
+          "id": "d33c2dd7-6c28-598d-8e29-38a408e6f055",
+          "name": "Home disinfection",
+          "description": "Describe your requirements for home disinfection and request a provider estimate."
+        },
+        {
+          "key": "office-shop-disinfection",
+          "id": "7d7c431f-9c71-584b-8846-78980d2b537d",
+          "name": "Office & shop disinfection",
+          "description": "Describe your requirements for office & shop disinfection and request a provider estimate."
+        },
+        {
+          "key": "vehicle-disinfection",
+          "id": "84dbbb7d-959e-5aa7-a9c7-a7c2938da941",
+          "name": "Vehicle disinfection",
+          "description": "Describe your requirements for vehicle disinfection and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "pest-control",
+      "id": "a46a4d09-9296-5079-972c-2a863f48f61a",
+      "name": "Pest Control",
+      "groupName": "Cleaning & hygiene",
+      "description": "Pest assessment, treatment and follow-up requests",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "general-pest-control",
+          "id": "065778d7-0a05-59d2-bb54-be8eec8242b6",
+          "name": "General pest control",
+          "description": "Describe your requirements for general pest control and request a provider estimate."
+        },
+        {
+          "key": "cockroach-control",
+          "id": "2c5435b8-fac9-5a65-beed-1d2d779b9e88",
+          "name": "Cockroach control",
+          "description": "Describe your requirements for cockroach control and request a provider estimate."
+        },
+        {
+          "key": "ant-control",
+          "id": "f3daf1e4-fc84-59c6-8413-a1d6b57a04bd",
+          "name": "Ant control",
+          "description": "Describe your requirements for ant control and request a provider estimate."
+        },
+        {
+          "key": "bed-bug-control",
+          "id": "60e64d58-2b18-5e10-a776-a299db7e5dee",
+          "name": "Bed bug control",
+          "description": "Describe your requirements for bed bug control and request a provider estimate."
+        },
+        {
+          "key": "termite-control",
+          "id": "5d44a90b-be73-5966-9386-214f38e61725",
+          "name": "Termite control",
+          "description": "Describe your requirements for termite control and request a provider estimate."
+        },
+        {
+          "key": "pest-control-follow-up",
+          "id": "94bd68c3-f54a-5d24-9e83-efeea16510eb",
+          "name": "Pest-control follow-up",
+          "description": "Describe your requirements for pest-control follow-up and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "painting",
+      "id": "86656d7c-f0ae-519d-8e31-4a652e8bd190",
+      "name": "Painting & Waterproofing",
+      "groupName": "Home improvement",
+      "description": "Painting, surface preparation and waterproofing projects",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "full-home-painting",
+          "id": "5973c986-e1b2-5ec7-be1f-3264258837b2",
+          "name": "Full-home painting",
+          "description": "Describe your requirements for full-home painting and request a provider estimate."
+        },
+        {
+          "key": "one-room-painting",
+          "id": "044353af-59a2-5d59-be15-29ef3704d0b3",
+          "name": "One-room painting",
+          "description": "Describe your requirements for one-room painting and request a provider estimate."
+        },
+        {
+          "key": "multiple-room-painting",
+          "id": "880ee507-f684-5a47-aaa4-e64c630827a0",
+          "name": "Multiple-room painting",
+          "description": "Describe your requirements for multiple-room painting and request a provider estimate."
+        },
+        {
+          "key": "individual-wall-painting",
+          "id": "def9f284-a24d-5984-b03a-d63ecdb46305",
+          "name": "Individual wall painting",
+          "description": "Describe your requirements for individual wall painting and request a provider estimate."
+        },
+        {
+          "key": "exterior-painting",
+          "id": "1c99682f-bef2-56a6-83be-fa8e03a339db",
+          "name": "Exterior painting",
+          "description": "Describe your requirements for exterior painting and request a provider estimate."
+        },
+        {
+          "key": "doors-grills-cabinets-painting",
+          "id": "2509e8ff-cb35-5e95-a90e-765ba0d09566",
+          "name": "Doors, grills & cabinets painting",
+          "description": "Describe your requirements for doors, grills & cabinets painting and request a provider estimate."
+        },
+        {
+          "key": "waterproofing",
+          "id": "b2af1a5f-c39c-5ff2-988d-c70bb57c0a7b",
+          "name": "Waterproofing",
+          "description": "Describe your requirements for waterproofing and request a provider estimate."
+        },
+        {
+          "key": "tile-grouting",
+          "id": "1be85175-1772-5b61-9582-d5c8b4017e93",
+          "name": "Tile grouting",
+          "description": "Describe your requirements for tile grouting and request a provider estimate."
+        },
+        {
+          "key": "painting-consultation",
+          "id": "103c94fe-a422-5661-a815-293b3d982676",
+          "name": "Painting consultation",
+          "description": "Describe your requirements for painting consultation and request a provider estimate."
+        },
+        {
+          "key": "painting-video-consultation",
+          "id": "7d806896-f73f-52c0-b3d9-a444f0020252",
+          "name": "Painting video consultation",
+          "description": "Describe your requirements for painting video consultation and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "wall-panels",
+      "id": "20cbd5f1-e473-592d-8bf4-095133a05679",
+      "name": "Wall Decor & Panels",
+      "groupName": "Home improvement",
+      "description": "Decorative panels, wall finishes and related installation",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "statement-wall-consultation",
+          "id": "b7f5568d-90ea-5e25-947e-1446767e05f0",
+          "name": "Statement-wall consultation",
+          "description": "Describe your requirements for statement-wall consultation and request a provider estimate."
+        },
+        {
+          "key": "wall-panel-installation",
+          "id": "93baf657-49b2-5644-9e6d-5e17a0de7747",
+          "name": "Wall panel installation",
+          "description": "Describe your requirements for wall panel installation and request a provider estimate."
+        },
+        {
+          "key": "charcoal-panel-installation",
+          "id": "ebed3081-481c-56ae-9129-a47efc834dd2",
+          "name": "Charcoal panel installation",
+          "description": "Describe your requirements for charcoal panel installation and request a provider estimate."
+        },
+        {
+          "key": "wpc-panel-installation",
+          "id": "b700ae98-279a-5c98-986e-a3d5f78e059f",
+          "name": "WPC panel installation",
+          "description": "Describe your requirements for wpc panel installation and request a provider estimate."
+        },
+        {
+          "key": "pvc-panel-installation",
+          "id": "7deec821-1a7c-56a7-ac28-c324435c39ca",
+          "name": "PVC panel installation",
+          "description": "Describe your requirements for pvc panel installation and request a provider estimate."
+        },
+        {
+          "key": "fluted-panel-installation",
+          "id": "4f8ebf7a-a93e-53f8-9649-429940e56ccf",
+          "name": "Fluted panel installation",
+          "description": "Describe your requirements for fluted panel installation and request a provider estimate."
+        },
+        {
+          "key": "wall-sheet-installation",
+          "id": "620cfbe3-0e58-570d-bfeb-b09d73ceb4fa",
+          "name": "Wall sheet installation",
+          "description": "Describe your requirements for wall sheet installation and request a provider estimate."
+        },
+        {
+          "key": "skirting-trims-moulding",
+          "id": "04d7ec41-074e-5df5-a51a-84d06744d866",
+          "name": "Skirting, trims & moulding",
+          "description": "Describe your requirements for skirting, trims & moulding and request a provider estimate."
+        },
+        {
+          "key": "cove-decorative-lighting",
+          "id": "c3475bcf-d674-578c-bfdd-161efd6d3b85",
+          "name": "Cove & decorative lighting",
+          "description": "Describe your requirements for cove & decorative lighting and request a provider estimate."
+        },
+        {
+          "key": "panel-related-woodwork",
+          "id": "982d829f-ea78-5250-bd3c-c4afbe596c63",
+          "name": "Panel-related woodwork",
+          "description": "Describe your requirements for panel-related woodwork and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "furniture-assembly",
+      "id": "b55487bf-dfdb-5c40-a898-6c8e1ac8b1be",
+      "name": "Furniture Assembly",
+      "groupName": "Home improvement",
+      "description": "Assembly for flat-pack and other household furniture",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "bed-assembly",
+          "id": "912b884e-5daa-5191-960e-80abe16b3033",
+          "name": "Bed assembly",
+          "description": "Describe your requirements for bed assembly and request a provider estimate."
+        },
+        {
+          "key": "wardrobe-assembly",
+          "id": "22fceef8-5206-50c2-8a17-4fc2d235e781",
+          "name": "Wardrobe assembly",
+          "description": "Describe your requirements for wardrobe assembly and request a provider estimate."
+        },
+        {
+          "key": "table-chair-assembly",
+          "id": "948ccff8-907c-5858-ba42-df823acc2e59",
+          "name": "Table & chair assembly",
+          "description": "Describe your requirements for table & chair assembly and request a provider estimate."
+        },
+        {
+          "key": "children-s-furniture-assembly",
+          "id": "a671ccba-9062-5dc3-b536-c7de9b55707a",
+          "name": "Children’s furniture assembly",
+          "description": "Describe your requirements for children’s furniture assembly and request a provider estimate."
+        },
+        {
+          "key": "living-room-tv-furniture-assembly",
+          "id": "9e15375e-e01a-57b4-8753-c0ae0acb2bcc",
+          "name": "Living-room & TV furniture assembly",
+          "description": "Describe your requirements for living-room & tv furniture assembly and request a provider estimate."
+        },
+        {
+          "key": "outdoor-furniture-assembly",
+          "id": "fee74dec-c48d-5159-931c-48aacaae24f8",
+          "name": "Outdoor furniture assembly",
+          "description": "Describe your requirements for outdoor furniture assembly and request a provider estimate."
+        },
+        {
+          "key": "storage-shelving-assembly",
+          "id": "dbbec9e3-603f-5938-94cb-09605b1f290c",
+          "name": "Storage & shelving assembly",
+          "description": "Describe your requirements for storage & shelving assembly and request a provider estimate."
+        },
+        {
+          "key": "religious-furniture-assembly",
+          "id": "f5051c2a-9a35-54b2-bf13-93c1e18240e5",
+          "name": "Religious furniture assembly",
+          "description": "Describe your requirements for religious furniture assembly and request a provider estimate."
+        },
+        {
+          "key": "kitchen-furniture-assembly",
+          "id": "d4bf5a99-dfe4-59bc-90fe-b515e64d5b8a",
+          "name": "Kitchen furniture assembly",
+          "description": "Describe your requirements for kitchen furniture assembly and request a provider estimate."
+        },
+        {
+          "key": "bathroom-cabinet-assembly",
+          "id": "8f4eb2e4-8eff-5c49-8731-84f9388440af",
+          "name": "Bathroom cabinet assembly",
+          "description": "Describe your requirements for bathroom cabinet assembly and request a provider estimate."
+        },
+        {
+          "key": "flat-pack-furniture-assembly",
+          "id": "d9b0331f-9734-54d8-8ae1-cf0a03c1215a",
+          "name": "Flat-pack furniture assembly",
+          "description": "Describe your requirements for flat-pack furniture assembly and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "smart-locks",
+      "id": "402f1a71-6c67-5704-bb05-2db971158412",
+      "name": "Smart Locks",
+      "groupName": "Home improvement",
+      "description": "Smart-lock selection, supply and installation requests",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "smart-lock-consultation",
+          "id": "21d32780-1581-5afc-9557-81193d8ef2a8",
+          "name": "Smart-lock consultation",
+          "description": "Describe your requirements for smart-lock consultation and request a provider estimate."
+        },
+        {
+          "key": "new-smart-lock-supply-installation",
+          "id": "be41338a-a8dc-5435-be87-267bca734fc7",
+          "name": "New smart-lock supply & installation",
+          "description": "Describe your requirements for new smart-lock supply & installation and request a provider estimate."
+        },
+        {
+          "key": "smart-lock-video-consultation",
+          "id": "1c5af810-d08c-5889-8709-4ad0f84b2e56",
+          "name": "Smart-lock video consultation",
+          "description": "Describe your requirements for smart-lock video consultation and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "ac",
+      "id": "c4bec5e8-90ba-5dd2-a162-d28dc1db944c",
+      "name": "AC Service & Repair",
+      "groupName": "Appliance care",
+      "description": "Air-conditioning cleaning, repairs and installation",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "ac-cleaning-service",
+          "id": "3563ef56-9148-5b78-813d-63c267ad9e3e",
+          "name": "AC cleaning service",
+          "description": "Describe your requirements for ac cleaning service and request a provider estimate."
+        },
+        {
+          "key": "deep-clean-ac-service",
+          "id": "e47239ec-ded5-58c9-aad3-14c1bcdb69fb",
+          "name": "Deep-clean AC service",
+          "description": "Describe your requirements for deep-clean ac service and request a provider estimate."
+        },
+        {
+          "key": "ac-repair-assessment",
+          "id": "953de9e1-d555-5d63-aaea-056c1ecdca46",
+          "name": "AC repair assessment",
+          "description": "Describe your requirements for ac repair assessment and request a provider estimate."
+        },
+        {
+          "key": "refrigerant-gas-refill-assessment",
+          "id": "467ab9dd-8ae6-5288-a3cf-ae39d67a8e94",
+          "name": "Refrigerant & gas-refill assessment",
+          "description": "Describe your requirements for refrigerant & gas-refill assessment and request a provider estimate."
+        },
+        {
+          "key": "ac-installation",
+          "id": "10fc61f4-0dec-55e8-8a75-9f5d2ba7d540",
+          "name": "AC installation",
+          "description": "Describe your requirements for ac installation and request a provider estimate."
+        },
+        {
+          "key": "ac-uninstallation",
+          "id": "ac6333f3-bf5b-5921-80d2-ab579f7d77aa",
+          "name": "AC uninstallation",
+          "description": "Describe your requirements for ac uninstallation and request a provider estimate."
+        },
+        {
+          "key": "ac-maintenance-package",
+          "id": "58dd3fc9-5988-5fb1-ac60-75dd029a628a",
+          "name": "AC maintenance package",
+          "description": "Describe your requirements for ac maintenance package and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "refrigerator",
+      "id": "db3d1a93-8bf9-5996-93bc-2cbeaa85964e",
+      "name": "Refrigerator Service & Repair",
+      "groupName": "Appliance care",
+      "description": "Refrigerator diagnosis and repair requests",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "refrigerator-diagnostic-check",
+          "id": "c67710d5-c8a3-592f-b174-872d927cd6dd",
+          "name": "Refrigerator diagnostic check",
+          "description": "Describe your requirements for refrigerator diagnostic check and request a provider estimate."
+        },
+        {
+          "key": "refrigerator-repair",
+          "id": "eda7c7b7-83ad-5eef-898e-5a6a26821bfc",
+          "name": "Refrigerator repair",
+          "description": "Describe your requirements for refrigerator repair and request a provider estimate."
+        },
+        {
+          "key": "single-door-refrigerator-repair",
+          "id": "c69911bb-b4c0-5bcc-9021-6f0a1e840e83",
+          "name": "Single-door refrigerator repair",
+          "description": "Describe your requirements for single-door refrigerator repair and request a provider estimate."
+        },
+        {
+          "key": "double-door-refrigerator-repair",
+          "id": "5138f670-7c68-556f-b853-8feb830fe9ba",
+          "name": "Double-door refrigerator repair",
+          "description": "Describe your requirements for double-door refrigerator repair and request a provider estimate."
+        },
+        {
+          "key": "side-by-side-refrigerator-repair",
+          "id": "5a15f506-b3ba-50b9-9219-c9c7f01dedd2",
+          "name": "Side-by-side refrigerator repair",
+          "description": "Describe your requirements for side-by-side refrigerator repair and request a provider estimate."
+        },
+        {
+          "key": "refrigerator-video-consultation",
+          "id": "5912b57a-acc2-569e-adf2-044ae47b44cf",
+          "name": "Refrigerator video consultation",
+          "description": "Describe your requirements for refrigerator video consultation and request a provider estimate."
+        },
+        {
+          "key": "rental-refrigerator-repair",
+          "id": "e3642298-d65c-5f23-a14c-e3ef811c7445",
+          "name": "Rental refrigerator repair",
+          "description": "Describe your requirements for rental refrigerator repair and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "washing-machine",
+      "id": "c2862929-adba-5849-89c1-22c64edc1e53",
+      "name": "Washing Machine Repair",
+      "groupName": "Appliance care",
+      "description": "Diagnosis and repairs for washing machines",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "washing-machine-diagnostic-check",
+          "id": "f3324dff-f93b-5175-be51-f51eaa602242",
+          "name": "Washing-machine diagnostic check",
+          "description": "Describe your requirements for washing-machine diagnostic check and request a provider estimate."
+        },
+        {
+          "key": "washing-machine-repair",
+          "id": "ae18684d-6843-56fa-9dad-826ac2759dfa",
+          "name": "Washing-machine repair",
+          "description": "Describe your requirements for washing-machine repair and request a provider estimate."
+        },
+        {
+          "key": "washing-machine-installation-assessment",
+          "id": "a919d76c-ecc1-52dc-98ab-ef6daccae4b9",
+          "name": "Washing-machine installation assessment",
+          "description": "Describe your requirements for washing-machine installation assessment and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "microwave",
+      "id": "d1d9fedc-eed2-5033-b8d6-dac234836cea",
+      "name": "Microwave Repair",
+      "groupName": "Appliance care",
+      "description": "Microwave diagnosis, repairs and remote assessments",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "microwave-diagnostic-check",
+          "id": "8a54fd12-2b36-50ba-a8b9-b1f52b897906",
+          "name": "Microwave diagnostic check",
+          "description": "Describe your requirements for microwave diagnostic check and request a provider estimate."
+        },
+        {
+          "key": "microwave-repair",
+          "id": "a721d19a-669a-54e9-a227-fa9153d5f937",
+          "name": "Microwave repair",
+          "description": "Describe your requirements for microwave repair and request a provider estimate."
+        },
+        {
+          "key": "microwave-video-consultation",
+          "id": "24daac74-4b8f-5879-8408-793e5dbec976",
+          "name": "Microwave video consultation",
+          "description": "Describe your requirements for microwave video consultation and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "television",
+      "id": "8d27630e-2c58-565d-a7be-f34d704b2e0f",
+      "name": "Television Repair",
+      "groupName": "Appliance care",
+      "description": "Television inspection and repair requests",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "television-diagnostic-check",
+          "id": "10d2ee67-2773-5358-86a3-77faff2a36ee",
+          "name": "Television diagnostic check",
+          "description": "Describe your requirements for television diagnostic check and request a provider estimate."
+        },
+        {
+          "key": "television-repair",
+          "id": "17d6c6a1-88b6-5fcd-a9b2-e0884e0ed100",
+          "name": "Television repair",
+          "description": "Describe your requirements for television repair and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "water-purifier",
+      "id": "a9c70c2d-09ee-5404-9616-1aa8c2c602fc",
+      "name": "Water Purifier Services",
+      "groupName": "Appliance care",
+      "description": "Purifier care, installation and new-unit requests",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "water-purifier-service",
+          "id": "3999e465-26ce-5e41-9cbd-ff8d1f7a051c",
+          "name": "Water purifier service",
+          "description": "Describe your requirements for water purifier service and request a provider estimate."
+        },
+        {
+          "key": "water-purifier-repair",
+          "id": "21ca2d96-036b-5708-b4b7-79560014150c",
+          "name": "Water purifier repair",
+          "description": "Describe your requirements for water purifier repair and request a provider estimate."
+        },
+        {
+          "key": "water-purifier-installation",
+          "id": "c493dc88-3cf6-53f2-b958-e1dd8bd0cb89",
+          "name": "Water purifier installation",
+          "description": "Describe your requirements for water purifier installation and request a provider estimate."
+        },
+        {
+          "key": "new-purifier-supply-installation-consultation",
+          "id": "72127dc5-2fac-5e4f-b6a1-15be47ae21e3",
+          "name": "New purifier supply & installation consultation",
+          "description": "Describe your requirements for new purifier supply & installation consultation and request a provider estimate."
+        },
+        {
+          "key": "water-purifier-video-consultation",
+          "id": "1ba25e6f-bec5-5880-a4da-4bb52f05ee30",
+          "name": "Water purifier video consultation",
+          "description": "Describe your requirements for water purifier video consultation and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "geyser",
+      "id": "7898ac77-aff3-5ba4-9e1b-11edc31d9caf",
+      "name": "Geyser Service & Repair",
+      "groupName": "Appliance care",
+      "description": "Water-heater care, repairs and fitting work",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "geyser-service",
+          "id": "43c3ba9c-dfe8-5374-b407-74d1b5d367e7",
+          "name": "Geyser service",
+          "description": "Describe your requirements for geyser service and request a provider estimate."
+        },
+        {
+          "key": "geyser-repair",
+          "id": "32b75143-7e29-5a98-993f-64035ec53c51",
+          "name": "Geyser repair",
+          "description": "Describe your requirements for geyser repair and request a provider estimate."
+        },
+        {
+          "key": "geyser-installation",
+          "id": "22070e6d-c67a-5022-bcdc-191893b0f274",
+          "name": "Geyser installation",
+          "description": "Describe your requirements for geyser installation and request a provider estimate."
+        },
+        {
+          "key": "geyser-uninstallation",
+          "id": "ad7d5223-4ea8-5d4e-809c-86524d037dc9",
+          "name": "Geyser uninstallation",
+          "description": "Describe your requirements for geyser uninstallation and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "stove",
+      "id": "a71fbc78-7928-53c0-aeb7-20ef739ca867",
+      "name": "Stove Service & Repair",
+      "groupName": "Appliance care",
+      "description": "Stove servicing and repair assessments",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "stove-service",
+          "id": "6119169c-a317-5359-a3bc-9b1d55b6ab8d",
+          "name": "Stove service",
+          "description": "Describe your requirements for stove service and request a provider estimate."
+        },
+        {
+          "key": "stove-repair",
+          "id": "172c7bc3-6aea-56d0-b779-23184b7d2236",
+          "name": "Stove repair",
+          "description": "Describe your requirements for stove repair and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "chimney",
+      "id": "511e0a01-b103-5d9d-85c2-d36467d2c33a",
+      "name": "Chimney Service & Repair",
+      "groupName": "Appliance care",
+      "description": "Kitchen chimney cleaning, repairs and installation",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "chimney-repair",
+          "id": "f1e1b0e7-ce94-5976-baed-659309ab4502",
+          "name": "Chimney repair",
+          "description": "Describe your requirements for chimney repair and request a provider estimate."
+        },
+        {
+          "key": "chimney-service",
+          "id": "b14d1b31-9f7d-589a-b427-1bd9d83be426",
+          "name": "Chimney service",
+          "description": "Describe your requirements for chimney service and request a provider estimate."
+        },
+        {
+          "key": "chimney-installation",
+          "id": "7d78aa8f-6417-540a-aac6-995a5f160cc4",
+          "name": "Chimney installation",
+          "description": "Describe your requirements for chimney installation and request a provider estimate."
+        },
+        {
+          "key": "chimney-uninstallation",
+          "id": "83b5cd15-61cd-5d05-8fb1-010e13ace4ed",
+          "name": "Chimney uninstallation",
+          "description": "Describe your requirements for chimney uninstallation and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "air-purifier",
+      "id": "f2f61a08-9664-5c98-8780-0c0f05d713a6",
+      "name": "Air Purifier Services",
+      "groupName": "Appliance care",
+      "description": "Air-purifier maintenance and repair assessments",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "air-purifier-service",
+          "id": "0b1e316e-40b8-585f-bd14-c9e20d3e700e",
+          "name": "Air purifier service",
+          "description": "Describe your requirements for air purifier service and request a provider estimate."
+        },
+        {
+          "key": "air-purifier-repair",
+          "id": "ae6b7e26-05e3-51a2-9b71-8064b5c9f35d",
+          "name": "Air purifier repair",
+          "description": "Describe your requirements for air purifier repair and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "air-cooler",
+      "id": "d3c541b2-c8fc-5c5e-b87c-f2f52ec12458",
+      "name": "Air Cooler Services",
+      "groupName": "Appliance care",
+      "description": "Air-cooler servicing and repairs",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "air-cooler-service",
+          "id": "d2ed9ea5-cb88-5d00-aa96-4a199f00b7b6",
+          "name": "Air cooler service",
+          "description": "Describe your requirements for air cooler service and request a provider estimate."
+        },
+        {
+          "key": "air-cooler-repair",
+          "id": "2d985f67-6a17-5fec-a4b0-cab70eee5640",
+          "name": "Air cooler repair",
+          "description": "Describe your requirements for air cooler repair and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "inverter",
+      "id": "224b22bf-6202-553a-bc37-0c0d4d1a7ace",
+      "name": "Inverter Services",
+      "groupName": "Appliance care",
+      "description": "Inverter servicing, repairs and fitting work",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "inverter-service",
+          "id": "5f651ead-1a61-5ec5-b55a-ac5a125b7e88",
+          "name": "Inverter service",
+          "description": "Describe your requirements for inverter service and request a provider estimate."
+        },
+        {
+          "key": "inverter-repair",
+          "id": "ba9ebd10-b3c7-54c2-ac00-ba43a554f1ea",
+          "name": "Inverter repair",
+          "description": "Describe your requirements for inverter repair and request a provider estimate."
+        },
+        {
+          "key": "inverter-installation",
+          "id": "ded06499-c192-5396-b5e1-0ecb93ccaebc",
+          "name": "Inverter installation",
+          "description": "Describe your requirements for inverter installation and request a provider estimate."
+        },
+        {
+          "key": "inverter-uninstallation",
+          "id": "ac666a16-372c-5ee5-9fe3-179bcc402405",
+          "name": "Inverter uninstallation",
+          "description": "Describe your requirements for inverter uninstallation and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "laptop",
+      "id": "2500c07f-25fa-590d-92ee-38418de678dd",
+      "name": "Laptop Repair",
+      "groupName": "Appliance care",
+      "description": "Laptop diagnosis and repair requests",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "laptop-diagnostic-assessment",
+          "id": "4d0c51e6-229f-5001-a840-49c859508cb2",
+          "name": "Laptop diagnostic assessment",
+          "description": "Describe your requirements for laptop diagnostic assessment and request a provider estimate."
+        },
+        {
+          "key": "laptop-repair",
+          "id": "b87a1032-0571-582e-bf8e-8e74a2365760",
+          "name": "Laptop repair",
+          "description": "Describe your requirements for laptop repair and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "women-salon",
+      "id": "756daee6-4dca-544b-b44a-9d2d22b96a05",
+      "name": "Women’s Salon",
+      "groupName": "Beauty & grooming",
+      "description": "Salon services and tailored beauty packages",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "waxing",
+          "id": "1924ea64-6b7e-57b1-8d14-d64584d52bea",
+          "name": "Waxing",
+          "description": "Describe your requirements for waxing and request a provider estimate."
+        },
+        {
+          "key": "threading",
+          "id": "e5692258-a067-59bb-8ef7-2be2f42f4739",
+          "name": "Threading",
+          "description": "Describe your requirements for threading and request a provider estimate."
+        },
+        {
+          "key": "facial-service",
+          "id": "e820b6a1-9e5f-5e0d-a347-9321ca90d173",
+          "name": "Facial service",
+          "description": "Describe your requirements for facial service and request a provider estimate."
+        },
+        {
+          "key": "facial-cleanup",
+          "id": "a3379afa-5d91-5a06-bd0b-be7fc71e187f",
+          "name": "Facial cleanup",
+          "description": "Describe your requirements for facial cleanup and request a provider estimate."
+        },
+        {
+          "key": "bleach-detan-service",
+          "id": "792c10c7-0dcb-57dc-89d5-1de7c82ba387",
+          "name": "Bleach & detan service",
+          "description": "Describe your requirements for bleach & detan service and request a provider estimate."
+        },
+        {
+          "key": "manicure",
+          "id": "abe6a1c1-eda2-592e-82d5-7b034441c9dc",
+          "name": "Manicure",
+          "description": "Describe your requirements for manicure and request a provider estimate."
+        },
+        {
+          "key": "pedicure",
+          "id": "6f3a583a-30e8-5414-b251-4e0d23980d0f",
+          "name": "Pedicure",
+          "description": "Describe your requirements for pedicure and request a provider estimate."
+        },
+        {
+          "key": "hair-spa",
+          "id": "d354c8bf-17a4-51f0-a984-b5a639187325",
+          "name": "Hair spa",
+          "description": "Describe your requirements for hair spa and request a provider estimate."
+        },
+        {
+          "key": "hair-colour-or-henna",
+          "id": "80506eb9-61e3-5a71-9716-9161316fcfc7",
+          "name": "Hair colour or henna",
+          "description": "Describe your requirements for hair colour or henna and request a provider estimate."
+        },
+        {
+          "key": "essential-salon-package",
+          "id": "e0e95050-5de8-5174-86ae-dd89de32fe5d",
+          "name": "Essential salon package",
+          "description": "Describe your requirements for essential salon package and request a provider estimate."
+        },
+        {
+          "key": "premium-salon-package",
+          "id": "daf78faa-a082-507e-bb5f-e801f2bb5535",
+          "name": "Premium salon package",
+          "description": "Describe your requirements for premium salon package and request a provider estimate."
+        },
+        {
+          "key": "luxury-salon-package",
+          "id": "ead0531d-686a-511b-bd93-d3fa53ab9dfd",
+          "name": "Luxury salon package",
+          "description": "Describe your requirements for luxury salon package and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "men-grooming",
+      "id": "f10e57e5-3db0-5895-a18d-f5681b6dd450",
+      "name": "Men’s & Kids’ Grooming",
+      "groupName": "Beauty & grooming",
+      "description": "Haircuts, beard styling and grooming services",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "men-s-haircut",
+          "id": "85d143d7-340c-5925-9a79-35b5a5b8563b",
+          "name": "Men’s haircut",
+          "description": "Describe your requirements for men’s haircut and request a provider estimate."
+        },
+        {
+          "key": "children-s-haircut",
+          "id": "22f45cca-8aee-5880-bfc2-ed990421de5b",
+          "name": "Children’s haircut",
+          "description": "Describe your requirements for children’s haircut and request a provider estimate."
+        },
+        {
+          "key": "beard-styling-shave",
+          "id": "81e141e4-5903-5a78-bfae-97a2fa5d2921",
+          "name": "Beard styling & shave",
+          "description": "Describe your requirements for beard styling & shave and request a provider estimate."
+        },
+        {
+          "key": "detan-service",
+          "id": "49f9e48f-18d1-5a59-9bae-7429c608aba5",
+          "name": "Detan service",
+          "description": "Describe your requirements for detan service and request a provider estimate."
+        },
+        {
+          "key": "facial-cleanup",
+          "id": "99cbc6e6-090f-5893-89ec-2f53c2e833f7",
+          "name": "Facial & cleanup",
+          "description": "Describe your requirements for facial & cleanup and request a provider estimate."
+        },
+        {
+          "key": "manicure-pedicure",
+          "id": "d51c0ff4-5cfd-5eb7-b2c4-02629a48f89e",
+          "name": "Manicure & pedicure",
+          "description": "Describe your requirements for manicure & pedicure and request a provider estimate."
+        },
+        {
+          "key": "hair-colouring",
+          "id": "5bce3334-9d92-5cb5-b557-48976639bf95",
+          "name": "Hair colouring",
+          "description": "Describe your requirements for hair colouring and request a provider estimate."
+        },
+        {
+          "key": "head-massage",
+          "id": "c1f660da-3241-5dc6-8b66-54250d99e512",
+          "name": "Head massage",
+          "description": "Describe your requirements for head massage and request a provider estimate."
+        },
+        {
+          "key": "premium-grooming-package",
+          "id": "46c3273d-7301-53f9-a079-4138831b1a19",
+          "name": "Premium grooming package",
+          "description": "Describe your requirements for premium grooming package and request a provider estimate."
+        },
+        {
+          "key": "luxury-grooming-package",
+          "id": "7fd7b6cd-985e-52e2-aa23-5be223a30005",
+          "name": "Luxury grooming package",
+          "description": "Describe your requirements for luxury grooming package and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "women-hair",
+      "id": "8c7f9875-d7d8-5354-9280-5da15592c635",
+      "name": "Women’s Hair Services",
+      "groupName": "Beauty & grooming",
+      "description": "Haircuts, styling, colour and professional hair care",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "haircut-trim",
+          "id": "b2cc9b6e-d6c1-502c-86d1-a94532fdbcc7",
+          "name": "Haircut & trim",
+          "description": "Describe your requirements for haircut & trim and request a provider estimate."
+        },
+        {
+          "key": "blow-dry-styling",
+          "id": "a8566a38-8e02-50b2-bf4d-700ffc0385a5",
+          "name": "Blow-dry & styling",
+          "description": "Describe your requirements for blow-dry & styling and request a provider estimate."
+        },
+        {
+          "key": "hair-care-treatment",
+          "id": "8619c23a-84c4-5960-8b1f-059bb4982962",
+          "name": "Hair-care treatment",
+          "description": "Describe your requirements for hair-care treatment and request a provider estimate."
+        },
+        {
+          "key": "keratin-hair-treatment",
+          "id": "0b484bc1-66a5-5d13-b3c9-1813b9c305c2",
+          "name": "Keratin hair treatment",
+          "description": "Describe your requirements for keratin hair treatment and request a provider estimate."
+        },
+        {
+          "key": "hair-smoothing-treatment",
+          "id": "de34e0e0-9fbc-5c84-9335-ca6d1743478f",
+          "name": "Hair smoothing treatment",
+          "description": "Describe your requirements for hair smoothing treatment and request a provider estimate."
+        },
+        {
+          "key": "hair-colour",
+          "id": "393d4615-c561-58eb-a11a-0797dfe33770",
+          "name": "Hair colour",
+          "description": "Describe your requirements for hair colour and request a provider estimate."
+        },
+        {
+          "key": "fashion-hair-colour",
+          "id": "50897c5b-c8e5-5ff7-9153-1a39e10bf95d",
+          "name": "Fashion hair colour",
+          "description": "Describe your requirements for fashion hair colour and request a provider estimate."
+        },
+        {
+          "key": "hair-extensions",
+          "id": "359c5e64-52d2-5790-95e4-88a6cf820226",
+          "name": "Hair extensions",
+          "description": "Describe your requirements for hair extensions and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "makeup",
+      "id": "4b93ccd1-3f60-58b7-a905-d1cbbf9f477f",
+      "name": "Makeup & Occasion Styling",
+      "groupName": "Beauty & grooming",
+      "description": "Makeup, draping and styling for special occasions",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "party-makeup",
+          "id": "cfe803c1-7491-5b24-8f51-fd8498b7a2f8",
+          "name": "Party makeup",
+          "description": "Describe your requirements for party makeup and request a provider estimate."
+        },
+        {
+          "key": "hair-styling-for-events",
+          "id": "9e8c4df6-b1a9-57b5-be24-c1db9cd2c9c6",
+          "name": "Hair styling for events",
+          "description": "Describe your requirements for hair styling for events and request a provider estimate."
+        },
+        {
+          "key": "saree-draping",
+          "id": "fe79ed1d-649e-5393-9c64-24354b08c66d",
+          "name": "Saree draping",
+          "description": "Describe your requirements for saree draping and request a provider estimate."
+        },
+        {
+          "key": "wedding-styling-package",
+          "id": "8134833e-a9d5-524b-910d-f3bca653e97e",
+          "name": "Wedding styling package",
+          "description": "Describe your requirements for wedding styling package and request a provider estimate."
+        },
+        {
+          "key": "group-styling-package",
+          "id": "342a04bb-2b73-5153-911e-34d8da82a618",
+          "name": "Group styling package",
+          "description": "Describe your requirements for group styling package and request a provider estimate."
+        },
+        {
+          "key": "makeup-styling-package",
+          "id": "b137abe8-9b4e-5a4d-a6a2-5030cfe21a25",
+          "name": "Makeup & styling package",
+          "description": "Describe your requirements for makeup & styling package and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "women-spa",
+      "id": "87ce73bc-ef34-5402-bca3-e175d42d25bd",
+      "name": "Women’s Spa & Massage",
+      "groupName": "Spa & wellness",
+      "description": "Spa and massage sessions tailored to the requested experience",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "mini-massage",
+          "id": "5f02f046-9207-5fca-bff3-0730bc308c0e",
+          "name": "Mini massage",
+          "description": "Describe your requirements for mini massage and request a provider estimate."
+        },
+        {
+          "key": "stress-relief-massage",
+          "id": "1b1f1de9-1b1b-510a-9149-cf3fd2c98523",
+          "name": "Stress-relief massage",
+          "description": "Describe your requirements for stress-relief massage and request a provider estimate."
+        },
+        {
+          "key": "muscle-comfort-massage",
+          "id": "3a898089-e160-5c97-b68a-063ba658cd91",
+          "name": "Muscle-comfort massage",
+          "description": "Describe your requirements for muscle-comfort massage and request a provider estimate."
+        },
+        {
+          "key": "body-scrub-detan",
+          "id": "ba83ac9a-376f-5f5a-a241-158ce815760e",
+          "name": "Body scrub & detan",
+          "description": "Describe your requirements for body scrub & detan and request a provider estimate."
+        },
+        {
+          "key": "ayurvedic-spa-session",
+          "id": "a17ea672-0a01-527b-bad0-0a8ea1d46048",
+          "name": "Ayurvedic spa session",
+          "description": "Describe your requirements for ayurvedic spa session and request a provider estimate."
+        },
+        {
+          "key": "sports-recovery-massage",
+          "id": "48836607-4170-51eb-a0a6-143221cff814",
+          "name": "Sports-recovery massage",
+          "description": "Describe your requirements for sports-recovery massage and request a provider estimate."
+        },
+        {
+          "key": "signature-spa-therapy",
+          "id": "e2a735e4-7c48-5045-b81d-fb41d1f4ce07",
+          "name": "Signature spa therapy",
+          "description": "Describe your requirements for signature spa therapy and request a provider estimate."
+        },
+        {
+          "key": "luxury-spa-session",
+          "id": "d2bcbb2c-830a-5633-8af0-ddc11cc54ef5",
+          "name": "Luxury spa session",
+          "description": "Describe your requirements for luxury spa session and request a provider estimate."
+        },
+        {
+          "key": "body-care-add-ons",
+          "id": "fc3fa4a1-7a72-59dd-a4f0-281f10aba4b2",
+          "name": "Body-care add-ons",
+          "description": "Describe your requirements for body-care add-ons and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "men-massage",
+      "id": "5d32f3e5-267e-5474-a850-e4d0dee65951",
+      "name": "Men’s Massage",
+      "groupName": "Spa & wellness",
+      "description": "Massage and recovery sessions for men",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "mini-massage",
+          "id": "38090250-a88a-5f20-902c-cd0edd4bb220",
+          "name": "Mini massage",
+          "description": "Describe your requirements for mini massage and request a provider estimate."
+        },
+        {
+          "key": "stress-relief-massage",
+          "id": "1ee5bd2d-16b7-50f2-9ce9-785ea54aba4c",
+          "name": "Stress-relief massage",
+          "description": "Describe your requirements for stress-relief massage and request a provider estimate."
+        },
+        {
+          "key": "muscle-comfort-massage",
+          "id": "b3441c0a-a44c-5707-b3bf-e95c43b9561d",
+          "name": "Muscle-comfort massage",
+          "description": "Describe your requirements for muscle-comfort massage and request a provider estimate."
+        },
+        {
+          "key": "sports-recovery-massage",
+          "id": "57ecb778-6cc9-55c0-b2e1-d0247557091b",
+          "name": "Sports-recovery massage",
+          "description": "Describe your requirements for sports-recovery massage and request a provider estimate."
+        },
+        {
+          "key": "ayurvedic-massage",
+          "id": "46fed26b-03c3-5526-ab58-bb08f25a86ec",
+          "name": "Ayurvedic massage",
+          "description": "Describe your requirements for ayurvedic massage and request a provider estimate."
+        },
+        {
+          "key": "signature-massage-therapy",
+          "id": "aadfad99-9825-5c08-950d-8f811b9570cd",
+          "name": "Signature massage therapy",
+          "description": "Describe your requirements for signature massage therapy and request a provider estimate."
+        },
+        {
+          "key": "luxury-massage-session",
+          "id": "eeb2f5c3-4911-57db-b9b5-2fcc6e4db4be",
+          "name": "Luxury massage session",
+          "description": "Describe your requirements for luxury massage session and request a provider estimate."
+        },
+        {
+          "key": "massage-add-ons",
+          "id": "c3151b22-fff3-5e90-b6af-cdf16b74ee34",
+          "name": "Massage add-ons",
+          "description": "Describe your requirements for massage add-ons and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "skin-laser",
+      "id": "5f154a27-1b81-5cf0-8f5c-141d6a9d9ae8",
+      "name": "Skin & Laser Services",
+      "groupName": "Skin & laser services",
+      "description": "Requests for specialist consultation and professionally delivered skin services",
+      "isFeatured": false,
+      "options": [
+        {
+          "key": "facials-peels-consultation",
+          "id": "28650e31-decc-56d9-8299-aabeb1da10bd",
+          "name": "Facials & peels consultation",
+          "description": "Describe your requirements for facials & peels consultation and request a provider estimate."
+        },
+        {
+          "key": "laser-suitability-consultation",
+          "id": "d05190aa-fbce-52b9-9ed5-a7cfb37ea8b3",
+          "name": "Laser suitability consultation",
+          "description": "Describe your requirements for laser suitability consultation and request a provider estimate."
+        },
+        {
+          "key": "skin-video-consultation",
+          "id": "9099d5f7-725b-551b-8a44-f80bf6c5a3d2",
+          "name": "Skin video consultation",
+          "description": "Describe your requirements for skin video consultation and request a provider estimate."
+        },
+        {
+          "key": "laser-hair-reduction",
+          "id": "34fc6931-04b9-58aa-91be-e2d5278f2cec",
+          "name": "Laser hair reduction",
+          "description": "Describe your requirements for laser hair reduction and request a provider estimate."
+        }
+      ]
+    },
+    {
+      "key": "automotive",
+      "id": "10000000-0000-0000-0000-000000000006",
+      "name": "Automotive Service",
+      "groupName": "Automotive",
+      "description": "Everyday vehicle care and assessment",
+      "isFeatured": true,
+      "options": [
+        {
+          "id": "40000000-0000-0000-0000-000000000501",
+          "name": "Vehicle inspection",
+          "description": "Describe your vehicle and request a condition assessment.",
+          "key": "vehicle-inspection"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000502",
+          "name": "Battery check & replacement",
+          "description": "Diagnose battery problems and discuss replacement.",
+          "key": "battery-check-replacement"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000503",
+          "name": "Oil & filter service",
+          "description": "Request routine oil and filter maintenance.",
+          "key": "oil-filter-service"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000504",
+          "name": "Interior detailing",
+          "description": "Cleaning and detailing of the vehicle interior.",
+          "key": "interior-detailing"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000505",
+          "name": "Diagnostic assessment",
+          "description": "Share symptoms or warning lights for an initial diagnosis.",
+          "key": "diagnostic-assessment"
+        }
+      ]
+    },
+    {
+      "key": "gardening",
+      "id": "10000000-0000-0000-0000-000000000005",
+      "name": "Gardening",
+      "groupName": "Garden & outdoor",
+      "description": "Healthy gardens and welcoming outdoor spaces",
+      "isFeatured": true,
+      "options": [
+        {
+          "id": "40000000-0000-0000-0000-000000000401",
+          "name": "Lawn care",
+          "description": "Mowing, edging and routine lawn maintenance.",
+          "key": "lawn-care"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000402",
+          "name": "Planting & garden beds",
+          "description": "Planting, soil preparation and garden-bed care.",
+          "key": "planting-garden-beds"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000403",
+          "name": "Hedge trimming",
+          "description": "Trim and shape hedges and small shrubs.",
+          "key": "hedge-trimming"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000404",
+          "name": "Seasonal garden cleanup",
+          "description": "Leaf removal, weeding and seasonal outdoor tidying.",
+          "key": "seasonal-garden-cleanup"
+        },
+        {
+          "id": "40000000-0000-0000-0000-000000000405",
+          "name": "Irrigation assessment",
+          "description": "Assess watering systems and irrigation problems.",
+          "key": "irrigation-assessment"
+        }
+      ]
+    }
+  ],
+  "sourceCoverage": [
+    {
+      "sourceName": "Ac Service And Repair",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-ac-service-repair",
+      "categoryKey": "ac",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Painting & Waterproofing",
+      "sourceUrl": "https://www.urbancompany.com/vijayawada-house-painters",
+      "categoryKey": "painting",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Statement Design Wall",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-wall-makeover",
+      "categoryKey": "wall-panels",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Salon Prime For Kids & Men",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-mens-grooming",
+      "categoryKey": "men-grooming",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Bathroom & Kitchen Cleaning",
+      "sourceUrl": "https://www.urbancompany.com/jamshedpur-professional-cleaning-services",
+      "categoryKey": "bathroom-kitchen-cleaning",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Native Water Purifier",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-ro-purchase",
+      "categoryKey": "water-purifier",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Refrigerator",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-refrigerator-repair",
+      "categoryKey": "refrigerator",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Microwave",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-microwave-repair",
+      "categoryKey": "microwave",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Spa For Women",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-spa-at-home",
+      "categoryKey": "women-spa",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Spa Luxe",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-spa-luxe",
+      "categoryKey": "women-spa",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Stove Service & Repair",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-gas-stove-repair",
+      "categoryKey": "stove",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Carpenters_amazon",
+      "sourceUrl": "https://www.urbancompany.com/ahmedabad-carpenters-amazon",
+      "categoryKey": "carpentry",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Carpenter",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-carpenters-density",
+      "categoryKey": "carpentry",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Plumber",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-plumbers-density",
+      "categoryKey": "plumbing",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Washing Machine",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-washing-machine-repair",
+      "categoryKey": "washing-machine",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Television Repair",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-tv-repair",
+      "categoryKey": "television",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Water Purifier",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-ro-repair",
+      "categoryKey": "water-purifier",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Spa Ayurveda",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-spa-ayurveda",
+      "categoryKey": "women-spa",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Furniture Assembly",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-furniture-assembly",
+      "categoryKey": "furniture-assembly",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Native Smart Locks",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-epc-stores-smarthome",
+      "categoryKey": "smart-locks",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Salon Royale",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-mg-luxe",
+      "categoryKey": "men-grooming",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Electrician",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-electrician-density",
+      "categoryKey": "electrical",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Full Home/ Book By Room Cleaning",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-professional-home-cleaning",
+      "categoryKey": "cleaning",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Geyser Service & Repair",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-geyser-reapir",
+      "categoryKey": "geyser",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Massage For Men",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-massage-for-men",
+      "categoryKey": "men-massage",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Sofa & Carpet Cleaning",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-professional-sofa-cleaning",
+      "categoryKey": "furniture-cleaning",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Hair Studio For Women",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-women-hair-services",
+      "categoryKey": "women-hair",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Salon Luxe",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-salon-luxe",
+      "categoryKey": "women-salon",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Salon Prime",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-salon-at-home",
+      "categoryKey": "women-salon",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Salon Classic",
+      "sourceUrl": "https://www.urbancompany.com/patna-salon-basics",
+      "categoryKey": "women-salon",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Plumbers_amazon",
+      "sourceUrl": "https://www.urbancompany.com/patna-plumbers-amazon",
+      "categoryKey": "plumbing",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Talk To Expert",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-epc-stores-vc",
+      "categoryKey": "smart-locks",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Rooms/ Walls Painting",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-painting-shp-fulfilment",
+      "categoryKey": "painting",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Electricians_amazon",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-electricians-amazon",
+      "categoryKey": "electrical",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Refrigerator Video Consult",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-refrigerator-repair-vc",
+      "categoryKey": "refrigerator",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Ac_amazon",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-ac-amazon",
+      "categoryKey": "ac",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Carpenters_flipkart",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-carpenters-flipkart",
+      "categoryKey": "carpentry",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Few Rooms & Walls Painting",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-painting-shp-sku-survey",
+      "categoryKey": "painting",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Wall Panels Installation",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-painting-services",
+      "categoryKey": "wall-panels",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Laptop Repair",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-laptop-repair",
+      "categoryKey": "laptop",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Air Purifier",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-air-purifier",
+      "categoryKey": "air-purifier",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Ikea Furniture Assembly",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-ikea-furniture-assembly",
+      "categoryKey": "furniture-assembly",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Chimney Repair",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-chimney-and-hob-repair",
+      "categoryKey": "chimney",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Massage Therapy For Men Royale",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-massage-for-men-luxe",
+      "categoryKey": "men-massage",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Ayurvedic Massage For Men",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-mfm-ayurveda",
+      "categoryKey": "men-massage",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Makeup, Saree & Styling",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-party-makeup-artist",
+      "categoryKey": "makeup",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Rooms/walls Painting",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-painting-shp-sku",
+      "categoryKey": "painting",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Pest Control Follow Up Service",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-pest-control-followup",
+      "categoryKey": "pest-control",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Kitchen Cleaning",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-professional-kitchen-cleaning",
+      "categoryKey": "bathroom-kitchen-cleaning",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Bathroom Cleaning",
+      "sourceUrl": "https://www.urbancompany.com/delhi-ncr-professional-bathroom-cleaning",
+      "categoryKey": "bathroom-kitchen-cleaning",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Disinfection Services",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-home-disinfection",
+      "categoryKey": "disinfection",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Microwave Video Consult",
+      "sourceUrl": "https://www.urbancompany.com/chennai-microwave-repair-vc",
+      "categoryKey": "microwave",
+      "evidence": "India index only; representative detail page unavailable",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Fan Installation",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-fan-installation",
+      "categoryKey": "electrical",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Painting Consultation",
+      "sourceUrl": "https://www.urbancompany.com/hyderabad-painting-vc",
+      "categoryKey": "painting",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Expert Counseling - Facials & Peels",
+      "sourceUrl": "https://www.urbancompany.com/hyderabad-free-dc-facials",
+      "categoryKey": "skin-laser",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Ants & Bed Bugs Control",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-bed-bugs-control",
+      "categoryKey": "pest-control",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Festival Lights Installation",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-diwali-lights-decoration",
+      "categoryKey": "electrical",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Carpet Cleaning",
+      "sourceUrl": "https://www.urbancompany.com/mumbai-professional-carpet-cleaning",
+      "categoryKey": "furniture-cleaning",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Air Cooler Service & Repair",
+      "sourceUrl": "https://www.urbancompany.com/mumbai-air-cooler-repair",
+      "categoryKey": "air-cooler",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Rentomojo Refrigerator Repair",
+      "sourceUrl": "https://www.urbancompany.com/chandigarh-rentomojo-refrigerator-repair",
+      "categoryKey": "refrigerator",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Laser Doctor Consultation",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-free-dc",
+      "categoryKey": "skin-laser",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Instant Video Consultation",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-skinclinic-instant-dc",
+      "categoryKey": "skin-laser",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Weekly Bathroom Cleaning",
+      "sourceUrl": "https://www.urbancompany.com/bangalore-routines-bathroom-cleaning",
+      "categoryKey": "bathroom-kitchen-cleaning",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Electrician (flood Support)",
+      "sourceUrl": "https://www.urbancompany.com/guntur-electrician-ap-flood",
+      "categoryKey": "electrical",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Plumber (flood Support)",
+      "sourceUrl": "https://www.urbancompany.com/guntur-plumber-ap-flood",
+      "categoryKey": "plumbing",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Water Purifier Video Consult",
+      "sourceUrl": "https://www.urbancompany.com/coimbatore-ro-repair-vc",
+      "categoryKey": "water-purifier",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Pest Control",
+      "sourceUrl": "https://www.urbancompany.com/indore-general-pest-control",
+      "categoryKey": "pest-control",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Inverter",
+      "sourceUrl": "https://www.urbancompany.com/lucknow-inverter-repair",
+      "categoryKey": "inverter",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    },
+    {
+      "sourceName": "Laser Hair Reduction",
+      "sourceUrl": "https://www.urbancompany.com/lucknow-skin-hair-consultation",
+      "categoryKey": "skin-laser",
+      "evidence": "India index and representative service menu",
+      "reviewedOn": "2026-10-27"
+    }
+  ]
+}

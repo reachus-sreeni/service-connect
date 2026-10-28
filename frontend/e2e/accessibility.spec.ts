@@ -12,10 +12,10 @@ async function login(page:Page,email='alex@example.test'){
  await expect(page.getByRole('button',{name:'Sign out',exact:true})).toBeEnabled();
 }
 test('public discovery, keyboard skip link and category details are accessible',async({page},info)=>{
- await page.goto('/');await expect(page.getByRole('button',{name:/Plumbing.*5 service options/})).toBeVisible();
+ await page.goto('/');await expect(page.getByRole('button',{name:/Plumbing.*service options/})).toBeVisible();
  await page.keyboard.press('Tab');await expect(page.getByRole('link',{name:'Skip to main content'})).toBeFocused();
  await accessible(page,info);
- await page.getByRole('button',{name:/Plumbing.*5 service options/}).click();await expect(page.getByRole('heading',{name:'Choose the help you need'})).toBeFocused();
+ await page.getByRole('button',{name:/Plumbing.*service options/}).click();await expect(page.getByRole('heading',{name:'Choose the help you need'})).toBeFocused();
  await expect(page.getByRole('heading',{name:'Leak repair',exact:true})).toBeVisible();await accessible(page,info);
 });
 test('service search preserves selection through sign-in and submits a reviewed request',async({page},info)=>{
@@ -49,6 +49,14 @@ test('completed service feedback and administrator review are accessible',async(
  await page.getByRole('button',{name:'Sign out',exact:true}).click();await login(page,'admin@example.test');await expect(page.getByRole('heading',{name:'Provider review',exact:true})).toBeVisible();await expect(page.getByText('Casey Pending',{exact:true})).toBeVisible();await accessible(page,info);
 });
 test('mobile discovery reflows without horizontal scrolling',async({page},info)=>{
- await page.setViewportSize({width:390,height:844});await page.goto('/');await expect(page.getByRole('button',{name:/Cleaning.*5 service options/})).toBeVisible();
+ await page.setViewportSize({width:390,height:844});await page.goto('/');await expect(page.getByRole('button',{name:/Cleaning.*service options/})).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1)).toBe(true);await accessible(page,info);
+});
+
+test('expanded service families remain searchable and accessible',async({page},info)=>{
+ await page.goto('/');await page.getByRole('button',{name:'All services (34)',exact:true}).click();
+ await expect(page.getByRole('button',{name:/Women’s Salon.*service options/})).toBeVisible();
+ await expect(page.getByRole('button',{name:/Pest Control.*service options/})).toBeVisible();
+ await page.getByLabel('Search services',{exact:true}).fill('laser');await expect(page.getByRole('button',{name:/Skin & Laser Services.*service options/})).toBeVisible();
+ await page.getByRole('button',{name:'Cleaning & hygiene',exact:true}).click();await expect(page.getByRole('button',{name:/Bathroom & Kitchen Cleaning.*service options/})).toBeVisible();await accessible(page,info);
 });

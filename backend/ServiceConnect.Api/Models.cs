@@ -36,6 +36,7 @@ public class ServiceCategory
     public string Name { get; set; } = "";
     public string Description { get; set; } = "";
     public bool IsFeatured { get; set; } = true;
+    public string GroupName { get; set; } = "Home repairs";
 }
 public class ServiceOption
 {
@@ -144,6 +145,7 @@ public class AppDb(DbContextOptions options) : DbContext(options)
         m.Entity<ServiceCategory>().HasIndex(x => x.Name).IsUnique();
         m.Entity<ServiceCategory>().Property(x => x.Name).HasMaxLength(100);
         m.Entity<ServiceCategory>().Property(x => x.Description).HasMaxLength(500);
+        m.Entity<ServiceCategory>().Property(x => x.GroupName).HasMaxLength(80);
         m.Entity<ServiceOption>().Property(x => x.Name).HasMaxLength(120);
         m.Entity<ServiceOption>().Property(x => x.Description).HasMaxLength(500);
         m.Entity<ServiceOption>().HasIndex(x => new { x.ServiceId, x.Name }).IsUnique();

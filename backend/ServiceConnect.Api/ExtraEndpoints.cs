@@ -7,7 +7,7 @@ public static class ExtraEndpoints
     public static void Map(WebApplication app)
     {
         app.MapGet("/api/services", async (AppDb db) => await db.Services.AsNoTracking().OrderBy(x => x.Name).Select(s => new {
-            s.Id, s.Name, s.Description, s.IsFeatured,
+            s.Id, s.Name, s.Description, s.IsFeatured, s.GroupName,
             Options = db.ServiceOptions.Where(o => o.ServiceId == s.Id).OrderBy(o => o.SortOrder).Select(o => new { o.Id, o.Name, o.Description }).ToList()
         }).ToListAsync());
         app.MapGet("/api/me", async (AppDb db, ClaimsPrincipal user) => {

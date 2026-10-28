@@ -267,6 +267,11 @@ namespace ServiceConnect.Api.Migrations.Sqlite
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("GroupName")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("IsFeatured")
                         .HasColumnType("INTEGER");
 

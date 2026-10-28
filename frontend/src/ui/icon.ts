@@ -1,5 +1,11 @@
 import {Component,input} from '@angular/core';
 const paths:Record<string,string>={
+ appliance:'M5 2h14v20H5V2Zm0 7h14M8 4v2m0 6v4',
+ scissors:'m8 8 12 12M8 16 20 4M8 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm0 14a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
+ spa:'M12 21c-8 0-10-6-10-10 5 0 8 2 10 6 2-4 5-6 10-6 0 4-2 10-10 10Zm0-4c-4-4-4-8 0-14 4 6 4 10 0 14Z',
+ bug:'M8 6h8v12a4 4 0 0 1-8 0V6Zm1 0L7 3m8 3 2-3M4 10h4m8 0h4M3 15h5m8 0h5M4 21l4-3m8 0 4 3M12 6v15',
+ paint:'M4 3h12v6H4V3Zm12 3h4v6h-9v3m-2 0h4v7H9v-7Z',
+ monitor:'M2 3h20v14H2V3Zm6 19h8m-4-5v5',
  tools:'M14 6a4 4 0 0 0-5 5l-6 6a2 2 0 0 0 3 3l6-6a4 4 0 0 0 5-5l-3 3-3-3 3-3Z',
  plumbing:'M7 3h10M12 3v4M5 12V9h12a3 3 0 0 1 3 3v2h-5v-2H5Zm-2 4h4v5H3Zm14 1s-2 2-2 3a2 2 0 0 0 4 0c0-1-2-3-2-3Z',
  garden:'M12 21V11M12 15C4 15 3 10 3 5c6 0 9 3 9 8m0-2c0-5 3-8 9-8 0 6-3 10-9 10',

@@ -50,4 +50,10 @@ describe('Service Connect UI',()=>{
   wizard.draft.location=' Demo area ';wizard.draft.description=' Slow leak ';wizard.next();expect(wizard.step()).toBe(3);
   const submitted=vi.fn();wizard.submitted.subscribe(submitted);wizard.next();expect(submitted).toHaveBeenCalledWith({serviceId:'plumbing',serviceOptionId:'leak',title:'Leak repair',description:'Slow leak',location:'Demo area'});
  });
+ it('keeps non-popular catalog entries discoverable through families and search',()=>{
+  const extended=[...categories,{id:'appliance',name:'Laptop Repair',description:'Computer repair',isFeatured:false,groupName:'Appliance care',options:[{id:'diagnostic',name:'Laptop diagnostic assessment',description:'Describe the laptop issue'}]}];
+  expect(filterCatalog(extended,'')).toHaveLength(2);expect(filterCatalog(extended,'','All services')).toHaveLength(3);
+  expect(filterCatalog(extended,'','Appliance care').map(c=>c.name)).toEqual(['Laptop Repair']);
+  expect(filterCatalog(extended,'laptop').map(c=>c.name)).toEqual(['Laptop Repair']);
+ });
 });
