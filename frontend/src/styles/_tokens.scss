@@ -1,0 +1,12 @@
+// Semantic tokens: components consume roles, not one-off brand colors.
+:root {
+ --sc-canvas:#fbfaf7; --sc-surface:#fff; --sc-ink:#252233; --sc-muted:#625d70;
+ --sc-brand:#5837a4; --sc-brand-hover:#43277f; --sc-brand-soft:#f0eafa;
+ --sc-border:#dedbe4; --sc-border-strong:#8b839b;
+ --sc-success:#1b6346; --sc-success-soft:#e6f2eb; --sc-danger:#a12c37; --sc-danger-soft:#fff0f1;
+ --sc-focus:#45218e; --sc-peach:#f8e6d8; --sc-mint:#e2eee5;
+ --sc-space-1:.25rem; --sc-space-2:.5rem; --sc-space-3:.75rem; --sc-space-4:1rem;
+ --sc-space-5:1.5rem; --sc-space-6:2rem; --sc-space-7:3rem; --sc-space-8:4.5rem;
+ --sc-radius-sm:8px; --sc-radius-md:14px; --sc-radius-lg:22px;
+ --sc-shadow:0 8px 30px #2b1b4b08; --sc-content:1200px;
+}

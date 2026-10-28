@@ -16,3 +16,6 @@ core
 *.db
 *.db-shm
 *.db-wal
+.e2e-data/
+playwright-report/
+test-results/

@@ -1,0 +1,25 @@
+<div class="wizard-layout">
+ <div class="surface wizard">
+  <ol class="stepper" aria-label="Request steps">@for(label of ['Choose a service','Add the details','Review & send'];track label;let index=$index){<li [class.current]="step()===index+1" [class.done]="step()>index+1" [attr.aria-current]="step()===index+1?'step':null"><span>{{index+1}}</span>{{label}}</li>}</ol>
+  @if(errorKeys().length){<div class="error-summary" id="request-errors" tabindex="-1" role="alert"><h3>Let’s check a few details</h3><ul>@for(key of errorKeys();track key){<li><a [href]="'#draft-'+key">{{errors()[key]}}</a></li>}</ul></div>}
+  <form (ngSubmit)="next()" novalidate>
+   <h2 id="request-step-title" tabindex="-1">{{step()===1?'What can we help you with?':step()===2?'Tell us a little about the job':'Everything look right?'}}</h2>
+   @if(step()===1){
+    <p class="muted">Choose the option that best describes what you need. Your provider will confirm the scope in their estimate.</p>
+    <label for="draft-serviceId">Service category</label><select id="draft-serviceId" name="category" required [(ngModel)]="draft.serviceId" (ngModelChange)="changeCategory()" [attr.aria-invalid]="!!errors().serviceId" [attr.aria-describedby]="errors().serviceId?'category-error':null"><option value="">Choose a category</option>@for(category of categories();track category.id){<option [value]="category.id">{{category.name}}</option>}</select>
+    @if(errors().serviceId){<p id="category-error" class="field-error">{{errors().serviceId}}</p>}
+    <fieldset id="draft-serviceOptionId" tabindex="-1" [attr.aria-describedby]="errors().serviceOptionId?'option-error':null"><legend>Service option</legend>
+     @for(option of category()?.options||[];track option.id){<label class="option-radio"><input type="radio" name="option" required [value]="option.id" [(ngModel)]="draft.serviceOptionId" (ngModelChange)="prefillTitle()"><span><strong>{{option.name}}</strong><small>{{option.description}}</small></span></label>}@empty{<p class="muted">Select a category to see the available options.</p>}
+    </fieldset>@if(errors().serviceOptionId){<p class="field-error" id="option-error">{{errors().serviceOptionId}}</p>}
+   }
+   @if(step()===2){
+    <label for="draft-location">City or area <span class="required">(required)</span></label><input id="draft-location" name="location" [(ngModel)]="draft.location" maxlength="200" autocomplete="address-level2" [attr.aria-invalid]="!!errors().location" aria-describedby="location-hint location-error"><small id="location-hint">Use a neighborhood or city. Share your exact address privately after choosing a provider.</small><p class="field-error" id="location-error">{{errors().location}}</p>
+    <label for="draft-title">A short title <span class="required">(required)</span></label><input id="draft-title" name="title" [(ngModel)]="draft.title" maxlength="120" [attr.aria-invalid]="!!errors().title" aria-describedby="title-error"><p class="field-error" id="title-error">{{errors().title}}</p>
+    <label for="draft-description">What needs to be done? <span class="required">(required)</span></label><textarea id="draft-description" name="description" [(ngModel)]="draft.description" maxlength="4000" rows="5" [attr.aria-invalid]="!!errors().description" aria-describedby="description-hint description-error"></textarea><small id="description-hint">Helpful details: the problem, size of the job and any access requirements. Avoid sensitive information.</small><p class="field-error" id="description-error">{{errors().description}}</p>
+   }
+   @if(step()===3){<dl class="review-list"><div><dt>Category</dt><dd>{{category()?.name}}</dd></div><div><dt>Service</dt><dd>{{option()?.name}}</dd></div><div><dt>Area</dt><dd>{{draft.location}}</dd></div><div><dt>Title</dt><dd>{{draft.title}}</dd></div><div><dt>Details</dt><dd class="preserve">{{draft.description}}</dd></div></dl><div class="info-note"><sc-icon name="shield"/><p>You’re requesting estimates, not committing to a price. Compare the scope and choose a provider when you’re ready.</p></div>}
+   <div class="wizard-actions"><button type="button" class="button secondary" (click)="step()===1?cancelled.emit():back()" [disabled]="busy()">{{step()===1?'Cancel':'Back'}}</button><button class="button primary" [disabled]="busy()">{{busy()?'Sending…':step()===3?'Send request':'Continue'}}<sc-icon name="arrow"/></button></div>
+  </form>
+ </div>
+ <aside class="request-aside"><span class="eyebrow">YOUR NEXT STEP</span><h3>A clear request.<br>A better estimate.</h3><p>Give providers a little context so they can recommend the right solution.</p><ol class="plain-steps"><li>Choose a service and describe the work.</li><li>Compare estimates and revisions.</li><li>Select a provider and review the completed work.</li></ol><p class="muted">No payments are collected through Service Connect.</p></aside>
+</div>

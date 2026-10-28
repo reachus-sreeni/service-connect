@@ -13,7 +13,7 @@
             "tsConfig": "tsconfig.app.json",
             "index": "src/index.html",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "outputPath": "dist/service-connect"
           },

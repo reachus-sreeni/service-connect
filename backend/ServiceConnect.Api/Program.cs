@@ -86,7 +86,9 @@ app.MapPost("/api/requests", async (RequestInput i, AppDb db, ClaimsPrincipal u)
     if (string.IsNullOrWhiteSpace(i.Title) || i.Title.Length > 120 || string.IsNullOrWhiteSpace(i.Description) || i.Description.Length > 4000 || string.IsNullOrWhiteSpace(i.Location) || i.Location.Length > 200) return Results.BadRequest(new { message = "Title (1–120), description (1–4000), and location (1–200) are required." });
     await RequireVerified(db, UserId(u));
     if (!await db.Services.AnyAsync(x => x.Id == i.ServiceId)) return Results.BadRequest(new { message = "Choose a valid service category." });
-    var r = new ServiceRequest { ServiceId = i.ServiceId, CustomerId = UserId(u), Title = i.Title.Trim(), Description = i.Description.Trim(), Location = i.Location.Trim() }; db.Requests.Add(r); db.Activities.Add(new ServiceActivity { RequestId = r.Id, ActorId = r.CustomerId, Kind = "RequestCreated", Details = "Customer posted a service request." }); await db.SaveChangesAsync(); return Results.Created($"/api/requests/{r.Id}", r);
+    if (i.ServiceOptionId is null || !await db.ServiceOptions.AnyAsync(x => x.Id == i.ServiceOptionId && x.ServiceId == i.ServiceId))
+        return Results.BadRequest(new { message = "Choose an option that belongs to the selected service category." });
+    var r = new ServiceRequest { ServiceOptionId = i.ServiceOptionId, ServiceId = i.ServiceId, CustomerId = UserId(u), Title = i.Title.Trim(), Description = i.Description.Trim(), Location = i.Location.Trim() }; db.Requests.Add(r); db.Activities.Add(new ServiceActivity { RequestId = r.Id, ActorId = r.CustomerId, Kind = "RequestCreated", Details = "Customer posted a service request." }); await db.SaveChangesAsync(); return Results.Created($"/api/requests/{r.Id}", r);
 }).RequireAuthorization(p => p.RequireRole("Customer"));
 app.MapGet("/api/requests/{id:guid}/estimates", async (Guid id, AppDb db, ClaimsPrincipal u) =>
 {

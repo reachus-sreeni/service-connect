@@ -5,9 +5,9 @@ Updated October 27, 2026 (America/Chicago). GitHub main is the source of truth; 
 ## Local checks for the expanded application
 
 - ASP.NET Core build and Release publish succeeded.
-- Sixteen backend tests passed, covering required phone/email, contact verification, code replay/expiry/attempt limits, administrator approval gates, customer/provider isolation, estimates, completion and two-way reviews.
+- Eighteen backend tests passed, covering required phone/email, contact verification, code replay/expiry/attempt limits, administrator approval gates, customer/provider isolation, estimates, completion and two-way reviews.
 - The local file test applies SQLite migrations, seeds all lifecycle states, edits a request, closes/reopens the database and verifies persistence without duplicate seeding.
-- Six Angular component tests passed, including required provider registration fields, verification/approval gates and mandatory completion feedback.
+- Eight Angular component tests passed, including required provider registration fields, verification/approval gates and mandatory completion feedback.
 - Angular production build passed.
 - The actual Development API started with SQLite migrations and synthetic demo data, without SQL Server or Docker.
 - A real browser signed in as the demo customer and displayed persisted requests, completed feedback in both directions and service history.
@@ -41,3 +41,9 @@ dotnet test tests/ServiceConnect.Tests -c Release
 ```
 
 CI's SQL credentials are disposable values for its isolated container, not application credentials. See LOCAL_SETUP.md for the manual flow through test accounts, OTP outbox, approval, work completion and both reviews.
+
+## UI/UX and catalog update
+
+The redesign adds five featured categories with five options each, an additional legacy Electrical category, a public catalog, a guided request wizard, separate account/workspace views and shared Sass/UI primitives. Backend checks include catalog option scope and a migration from the previous schema that preserves a pre-existing customer and request.
+
+The new full-stack Playwright suite contains seven scenarios with axe checks tagged for WCAG 2.1 A/AA. Local execution starts the isolated application correctly but macOS denies Chromium launch, so local automated-browser success is not claimed. The GitHub frontend job installs Chromium on Linux, runs the suite and uploads its report. JAWS, complete manual conformance testing and Azure DevOps execution remain unverified; see ACCESSIBILITY.md and INTERVIEW_WALKTHROUGH.md.

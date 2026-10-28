@@ -37,6 +37,14 @@ All use password **`Local-Demo-Only-2026!`** unless `Demo__Password` was set bef
 
 Examples cover Open, Accepted, AwaitingCustomerReview and Completed requests, estimate revisions, activity history and two-way reviews. These accounts are created only in Development with SQLite. Restarts do not reset your tests or overwrite account data.
 
+## UI/UX and portfolio walkthrough
+
+Browse before signing in, search within service options, then use the guided request flow. The featured catalog contains Plumbing, Gardening, Cleaning, Carpentry and Automotive Service, each with five selectable services. Electrical remains under Other services for existing records. Catalog changes keep stable IDs and preserve older requests without an option.
+
+- [Design system and component contracts](docs/DESIGN_SYSTEM.md)
+- [Accessibility implementation and audit plan](docs/ACCESSIBILITY.md)
+- [Job-aligned interview walkthrough](docs/INTERVIEW_WALKTHROUGH.md)
+
 ## Guides
 
 - [Local setup and manual test flow](docs/LOCAL_SETUP.md)

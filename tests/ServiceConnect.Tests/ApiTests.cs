@@ -63,7 +63,15 @@ public class ApiTests {
   var r=await c.PostAsJsonAsync("/api/auth/login",new{email="admin@example.test",password=Password});r.EnsureSuccessStatusCode();
   var token=(await r.Content.ReadFromJsonAsync<JsonElement>()).GetProperty("token").GetString()!;SignIn(c,token);return token;
  }
- static Task<HttpResponseMessage> CreateRequest(HttpClient c) => c.PostAsJsonAsync("/api/requests",new{title="Repair door",description="Replace hinge",location="Demo area",serviceId=DatabaseSetup.GeneralServiceId});
+ static Task<HttpResponseMessage> CreateRequest(HttpClient c) => c.PostAsJsonAsync("/api/requests",new{title="Repair door",description="Replace hinge",location="Demo area",serviceId=DatabaseSetup.GeneralServiceId,serviceOptionId=DatabaseSetup.HingeRepairOptionId});
+ [Fact] public async Task PublicCatalogHasRequestedCategoriesAndScopedOptions() {
+  using var host=new ApiFactory();using var c=host.Ready();
+  var catalog=await c.GetFromJsonAsync<JsonElement[]>("/api/services");
+  Assert.Equal(5,catalog!.Count(c=>c.GetProperty("isFeatured").GetBoolean()));
+  foreach(var name in new[]{"Plumbing","Gardening","Cleaning","Carpentry","Automotive Service"}) Assert.Contains(catalog!,c=>c.GetProperty("name").GetString()==name&&c.GetProperty("options").GetArrayLength()==5);
+  await Register(c,"Customer");await VerifyContacts(host,c);
+  Assert.Equal(HttpStatusCode.BadRequest,(await c.PostAsJsonAsync("/api/requests",new{title="Repair",description="Leak",location="Demo",serviceId=DatabaseSetup.GeneralServiceId,serviceOptionId=Guid.Parse("40000000-0000-0000-0000-000000000101")})).StatusCode);
+ }
  [Fact] public async Task AnonymousAndWrongRoleCannotCreateRequests() {
   using var host=new ApiFactory();using var c=host.Ready();
   Assert.Equal(HttpStatusCode.Unauthorized,(await c.GetAsync("/api/requests")).StatusCode);

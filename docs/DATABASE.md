@@ -29,7 +29,7 @@ dotnet run --no-launch-profile --project backend/ServiceConnect.Api
 
 `--no-launch-profile` is important: it prevents the Local launch profile from overriding the environment. Use a stable secret source for `Jwt__Key` outside a short test session. Do not commit credentials. Production must provide a signing key of at least 32 bytes; no default production key is generated. The connection must trust the SQL Server certificate through the appropriate certificate chain.
 
-Initialization applies migrations and inserts the five service categories, but no demo accounts. It does not copy local users or transactions to SQL Server. The SQLite test file stays on disk separately. Use new registrations or an intentionally designed data import for a real environment.
+Initialization applies migrations and inserts the six service categories and their service options, but no demo accounts. It does not copy local users or transactions to SQL Server. The SQLite test file stays on disk separately. Use new registrations or an intentionally designed data import for a real environment.
 
 Bootstrap a real administrator before running the application:
 

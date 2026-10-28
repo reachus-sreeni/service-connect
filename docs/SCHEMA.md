@@ -7,15 +7,16 @@ Both SQLite and SQL Server use the same domain model and independent EF migratio
 | Accounts | Customer, Provider or Admin; unique normalized email and international phone; password hash, email/phone verification flags, concurrency version |
 | Providers | One-to-one account profile; business name, qualifications, Pending/Approved/Rejected, last reviewer/time/notes and concurrency version |
 | ProviderDecisions | Append-only administrator decisions; provider profile, administrator, status, notes and timestamp |
-| Services | Unique service-category name and description; referenced by requests |
-| Requests | Customer and service foreign keys; title, description, area, lifecycle status, accepted estimate ID, completion time and concurrency version |
+| Services | Unique service-category name/description and featured-discovery flag; referenced by requests |
+| ServiceOptions | Category foreign key, scoped option name, description and display order; unique (category, name) |
+| Requests | Customer, service and optional service-option foreign keys; title, description, area, lifecycle status, accepted estimate ID, completion time and concurrency version |
 | Estimates | Provider and request foreign keys; one row per (request, provider), current revision/amount/notes |
 | Revisions | Estimate foreign key; unique (estimate, revision), immutable amount/notes/time history |
 | Reviews | Request, reviewer and reviewee foreign keys; unique (request, direction); 1–5 scores, written feedback and timestamp |
 | Activities | Request and actor foreign keys; append-only service event kind, details and time |
 | VerificationChallenges | Account foreign key; email/phone channel, HMAC code hash, expiry, attempt count, consumed flag, concurrency version |
 
-Table names correspond to DbSet names in the EF model. The accepted estimate ID is assigned only by the transaction workflow, which validates request membership and revision. A direct FK from Requests to Estimates is intentionally omitted to avoid a circular insert dependency; requests must exist before estimates. All mutation endpoints validate this relationship.
+Table names correspond to DbSet names in the EF model. New requests require a service option. A composite foreign key ensures that option belongs to the selected category; older requests may retain a null option. The accepted estimate ID is assigned only by the transaction workflow, which validates request membership and revision. A direct FK from Requests to Estimates is intentionally omitted to avoid a circular insert dependency; requests must exist before estimates. All mutation endpoints validate this relationship.
 
 ## Service lifecycle
 
@@ -34,4 +35,4 @@ History/reviews are visible to the customer, accepted provider and administrator
 
 ## Sample dataset
 
-Local seed creates six synthetic accounts (one administrator, two customers, three providers), five service categories, four requests across the lifecycle, competing/revised estimates and completed feedback. All demo contact flags/approvals are simulated. The seed runs only for an empty account store and never resets manual changes on restart. It is disabled for SQL Server and non-Development environments.
+Local seed creates six synthetic accounts (one administrator, two customers, three providers), six service categories (five featured), 27 service options, four requests across the lifecycle, competing/revised estimates and completed feedback. All demo contact flags/approvals are simulated. The seed runs only for an empty account store and never resets manual changes on restart. It is disabled for SQL Server and non-Development environments.

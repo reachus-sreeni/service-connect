@@ -6,7 +6,10 @@ public static class ExtraEndpoints
     private static Guid UserId(ClaimsPrincipal u) => Guid.Parse(u.FindFirstValue(ClaimTypes.NameIdentifier)!);
     public static void Map(WebApplication app)
     {
-        app.MapGet("/api/services", async (AppDb db) => await db.Services.AsNoTracking().OrderBy(x => x.Name).ToListAsync()).RequireAuthorization();
+        app.MapGet("/api/services", async (AppDb db) => await db.Services.AsNoTracking().OrderBy(x => x.Name).Select(s => new {
+            s.Id, s.Name, s.Description, s.IsFeatured,
+            Options = db.ServiceOptions.Where(o => o.ServiceId == s.Id).OrderBy(o => o.SortOrder).Select(o => new { o.Id, o.Name, o.Description }).ToList()
+        }).ToListAsync());
         app.MapGet("/api/me", async (AppDb db, ClaimsPrincipal user) => {
             var a = await db.Accounts.FindAsync(UserId(user)) ?? throw new RuleException(404,"Account not found.");
             var profile = await db.Providers.AsNoTracking().SingleOrDefaultAsync(x => x.AccountId == a.Id);

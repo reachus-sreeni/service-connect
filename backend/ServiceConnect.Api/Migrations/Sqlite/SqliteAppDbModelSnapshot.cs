@@ -267,6 +267,9 @@ namespace ServiceConnect.Api.Migrations.Sqlite
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsFeatured")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -278,6 +281,36 @@ namespace ServiceConnect.Api.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("ServiceConnect.ServiceOption", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceId", "Name")
+                        .IsUnique();
+
+                    b.ToTable("ServiceOptions");
                 });
 
             modelBuilder.Entity("ServiceConnect.ServiceRequest", b =>
@@ -311,6 +344,9 @@ namespace ServiceConnect.Api.Migrations.Sqlite
                     b.Property<Guid>("ServiceId")
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid?>("ServiceOptionId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -330,6 +366,8 @@ namespace ServiceConnect.Api.Migrations.Sqlite
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("ServiceId");
+
+                    b.HasIndex("ServiceOptionId", "ServiceId");
 
                     b.ToTable("Requests", t =>
                         {
@@ -512,6 +550,15 @@ namespace ServiceConnect.Api.Migrations.Sqlite
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ServiceConnect.ServiceOption", b =>
+                {
+                    b.HasOne("ServiceConnect.ServiceCategory", null)
+                        .WithMany()
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ServiceConnect.ServiceRequest", b =>
                 {
                     b.HasOne("ServiceConnect.Account", null)
@@ -525,6 +572,12 @@ namespace ServiceConnect.Api.Migrations.Sqlite
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("ServiceConnect.ServiceOption", null)
+                        .WithMany()
+                        .HasForeignKey("ServiceOptionId", "ServiceId")
+                        .HasPrincipalKey("Id", "ServiceId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("ServiceConnect.ServiceReview", b =>

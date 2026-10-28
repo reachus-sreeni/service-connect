@@ -35,12 +35,20 @@ public class ServiceCategory
     public Guid Id { get; set; } = Guid.NewGuid();
     public string Name { get; set; } = "";
     public string Description { get; set; } = "";
+    public bool IsFeatured { get; set; } = true;
+}
+public class ServiceOption
+{
+    public Guid Id { get; set; } = Guid.NewGuid(); public Guid ServiceId { get; set; }
+    public string Name { get; set; } = ""; public string Description { get; set; } = "";
+    public int SortOrder { get; set; }
 }
 public class ServiceRequest
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public Guid CustomerId { get; set; }
     public Guid ServiceId { get; set; }
+    public Guid? ServiceOptionId { get; set; }
     public string Title { get; set; } = "";
     public string Description { get; set; } = "";
     public string Location { get; set; } = "";
@@ -95,6 +103,7 @@ public class AppDb(DbContextOptions options) : DbContext(options)
     public DbSet<ProviderProfile> Providers => Set<ProviderProfile>();
     public DbSet<ProviderVerificationDecision> ProviderDecisions => Set<ProviderVerificationDecision>();
     public DbSet<ServiceCategory> Services => Set<ServiceCategory>();
+    public DbSet<ServiceOption> ServiceOptions => Set<ServiceOption>();
     public DbSet<ServiceRequest> Requests => Set<ServiceRequest>();
     public DbSet<Estimate> Estimates => Set<Estimate>();
     public DbSet<EstimateRevision> Revisions => Set<EstimateRevision>();
@@ -135,6 +144,12 @@ public class AppDb(DbContextOptions options) : DbContext(options)
         m.Entity<ServiceCategory>().HasIndex(x => x.Name).IsUnique();
         m.Entity<ServiceCategory>().Property(x => x.Name).HasMaxLength(100);
         m.Entity<ServiceCategory>().Property(x => x.Description).HasMaxLength(500);
+        m.Entity<ServiceOption>().Property(x => x.Name).HasMaxLength(120);
+        m.Entity<ServiceOption>().Property(x => x.Description).HasMaxLength(500);
+        m.Entity<ServiceOption>().HasIndex(x => new { x.ServiceId, x.Name }).IsUnique();
+        m.Entity<ServiceOption>().HasAlternateKey(x => new { x.Id, x.ServiceId });
+        m.Entity<ServiceOption>().HasOne<ServiceCategory>().WithMany().HasForeignKey(x => x.ServiceId).OnDelete(DeleteBehavior.Restrict);
+        m.Entity<ServiceRequest>().HasOne<ServiceOption>().WithMany().HasForeignKey(x => new { x.ServiceOptionId, x.ServiceId }).HasPrincipalKey(x => new { x.Id, x.ServiceId }).OnDelete(DeleteBehavior.Restrict);
         m.Entity<ServiceRequest>().Property(x => x.Version).IsConcurrencyToken();
         m.Entity<ServiceRequest>().Property(x => x.Title).HasMaxLength(120);
         m.Entity<ServiceRequest>().Property(x => x.Description).HasMaxLength(4000);
@@ -174,7 +189,7 @@ public class SqlServerAppDb(DbContextOptions<SqlServerAppDb> options) : AppDb(op
 
 public record RegisterInput(string Email, string Name, string Password, string Role, string Phone, string? BusinessName, string? Qualifications);
 public record LoginInput(string Email, string Password);
-public record RequestInput(string Title, string Description, string Location, Guid ServiceId);
+public record RequestInput(string Title, string Description, string Location, Guid ServiceId, Guid? ServiceOptionId = null);
 public record EstimateInput(decimal Amount, string Notes, int ExpectedRevision);
 public record AcceptInput(Guid EstimateId, int ExpectedRevision);
 public record CustomerReviewInput(int Overall, int Quality, int Communication, int Punctuality, string Feedback);
