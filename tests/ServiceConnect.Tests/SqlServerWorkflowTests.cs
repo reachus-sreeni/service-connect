@@ -20,8 +20,6 @@ public class SqlServerWorkflowTests {
     await using var context=new AppDb(options);
     try { await new Workflow(context).Accept(request.Id,c.Id,new(id,1));return true; }
     catch(RuleException ex) when(ex.Status==409) { return false; }
-    catch(DbUpdateException) { return false; }
-    catch(SqlException ex) when(ex.Number==1205) { return false; }
    }
    var results=await Task.WhenAll(Accept(e1.Id),Accept(e2.Id));Assert.Single(results,x=>x);
    db.ChangeTracker.Clear();var accepted=(await db.Requests.SingleAsync()).AcceptedEstimateId;Assert.Contains(accepted,new Guid?[]{e1.Id,e2.Id});

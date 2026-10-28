@@ -1,6 +1,6 @@
 # Git and GitHub on Mac
 
-The destination is https://github.com/reachus-sreeni/service-connect, branch `main`. Publication is currently blocked by authentication; see the verification report.
+The destination is https://github.com/reachus-sreeni/service-connect, branch `main`. The application has been published to main; see the verification report for build and test results.
 
 ## Push the prepared local checkout
 
@@ -21,7 +21,7 @@ git --version
 
 If missing, run `xcode-select --install`, follow the installer and try again. Official guidance: https://git-scm.com/download/mac.
 
-## Get the project after publication
+## Clone the published project
 
 ```sh
 git clone https://github.com/reachus-sreeni/service-connect.git
