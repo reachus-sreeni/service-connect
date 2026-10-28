@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.angular/
+out-tsc/
+**/bin/
+**/obj/
+.env
+.env.*
+!.env.example
+*.user
+.DS_Store
+TestResults/
+core
+*.dmp

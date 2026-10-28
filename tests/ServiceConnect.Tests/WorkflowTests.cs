@@ -1,0 +1,16 @@
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using ServiceConnect;
+using Xunit;
+namespace ServiceConnect.Tests;
+public class WorkflowTests:IDisposable {
+ readonly string? sql=Environment.GetEnvironmentVariable("TEST_SQLSERVER"); readonly SqliteConnection conn=new("Data Source=:memory:"); readonly AppDb db; readonly Workflow flow; readonly Account customer=new(){Email="c@example.com"}; readonly Account provider=new(){Email="p@example.com",Role="Provider"}; readonly ServiceRequest request;
+ public WorkflowTests(){conn.Open();var options=new DbContextOptionsBuilder<AppDb>();if(sql is null) options.UseSqlite(conn); else options.UseSqlServer(new Microsoft.Data.SqlClient.SqlConnectionStringBuilder(sql){InitialCatalog="ServiceConnectTest_"+Guid.NewGuid().ToString("N")}.ConnectionString);db=new AppDb(options.Options);db.Database.EnsureCreated();db.Accounts.AddRange(customer,provider);request=new(){CustomerId=customer.Id,Title="Repair"};db.Requests.Add(request);db.SaveChanges();flow=new Workflow(db);}
+ [Fact] public async Task RevisionsKeepOneEstimateAndAppendHistory(){var first=await flow.Quote(request.Id,provider.Id,new(100,"First",0));var second=await flow.Quote(request.Id,provider.Id,new(120,"Revised",1));Assert.Equal(first.Id,second.Id);Assert.Equal(2,second.Revision);Assert.Equal(1,await db.Estimates.CountAsync());Assert.Equal(2,await db.Revisions.CountAsync());}
+ [Fact] public async Task StaleRevisionIsRejected(){await flow.Quote(request.Id,provider.Id,new(100,"First",0));var ex=await Assert.ThrowsAsync<RuleException>(()=>flow.Quote(request.Id,provider.Id,new(120,"Stale",0)));Assert.Equal(409,ex.Status);}
+ [Fact] public async Task OnlyOwnerCanAccept(){var e=await flow.Quote(request.Id,provider.Id,new(100,"First",0));var ex=await Assert.ThrowsAsync<RuleException>(()=>flow.Accept(request.Id,Guid.NewGuid(),new(e.Id,1)));Assert.Equal(403,ex.Status);}
+ [Fact] public async Task AcceptanceFreezesAllQuotesAndCannotRepeat(){var e=await flow.Quote(request.Id,provider.Id,new(100,"First",0));await flow.Accept(request.Id,customer.Id,new(e.Id,1));Assert.Equal(e.Id,request.AcceptedEstimateId);await Assert.ThrowsAsync<RuleException>(()=>flow.Quote(request.Id,provider.Id,new(120,"Late",1)));await Assert.ThrowsAsync<RuleException>(()=>flow.Accept(request.Id,customer.Id,new(e.Id,1)));}
+ [Fact] public async Task CannotAcceptStaleOrUnrelatedEstimate(){var e=await flow.Quote(request.Id,provider.Id,new(100,"First",0));await flow.Quote(request.Id,provider.Id,new(120,"Revised",1));Assert.Equal(409,(await Assert.ThrowsAsync<RuleException>(()=>flow.Accept(request.Id,customer.Id,new(e.Id,1)))).Status);Assert.Equal(404,(await Assert.ThrowsAsync<RuleException>(()=>flow.Accept(request.Id,customer.Id,new(Guid.NewGuid(),1)))).Status);}
+ [Theory][InlineData(0)][InlineData(-5)][InlineData(1.234)] public async Task InvalidAmountsRejected(decimal amount){Assert.Equal(400,(await Assert.ThrowsAsync<RuleException>(()=>flow.Quote(request.Id,provider.Id,new(amount,"Scope",0)))).Status);}
+ public void Dispose(){if(sql is not null)db.Database.EnsureDeleted();db.Dispose();conn.Dispose();}
+}
