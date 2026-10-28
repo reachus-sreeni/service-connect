@@ -1,7 +1,7 @@
 <div class="wizard-layout">
  <div class="surface wizard">
   <ol class="stepper" aria-label="Request steps">@for(label of ['Choose a service','Add the details','Review & send'];track label;let index=$index){<li [class.current]="step()===index+1" [class.done]="step()>index+1" [attr.aria-current]="step()===index+1?'step':null"><span>{{index+1}}</span>{{label}}</li>}</ol>
-  @if(errorKeys().length){<div class="error-summary" id="request-errors" tabindex="-1" role="alert"><h3>Let’s check a few details</h3><ul>@for(key of errorKeys();track key){<li><a [href]="'#draft-'+key">{{errors()[key]}}</a></li>}</ul></div>}
+  @if(errorKeys().length){<div class="error-summary" id="request-errors" tabindex="-1" role="alert"><h2>Let’s check a few details</h2><ul>@for(key of errorKeys();track key){<li><a [href]="'#draft-'+key">{{errors()[key]}}</a></li>}</ul></div>}
   <form (ngSubmit)="next()" novalidate>
    <h2 id="request-step-title" tabindex="-1">{{step()===1?'What can we help you with?':step()===2?'Tell us a little about the job':'Everything look right?'}}</h2>
    @if(step()===1){
