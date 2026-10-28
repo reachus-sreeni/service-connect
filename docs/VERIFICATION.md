@@ -14,6 +14,17 @@ Prepared October 27, 2026 (America/Chicago).
 - Updated .NET packages restored without the vulnerability warnings seen in the original package versions.
 - No AWS deployment was performed. AWS instructions are supplied; credentials/infrastructure are not part of this source package.
 
+## GitHub verification
+
+GitHub Actions run [40619136660](https://github.com/reachus-sreeni/service-connect/actions/runs/40619136660) passed for application commit `7980d9f871289fa2c8498df5d5721b6d4f9f51c2`:
+
+- Backend: 11 API/relational workflow tests passed; the SQL-only case was skipped in this first pass.
+- SQL Server 2022: all nine workflow/concurrency tests passed, including simultaneous acceptance with exactly one winner.
+- ASP.NET Core Release publish succeeded.
+- Angular production build and all three UI component tests passed.
+
+The SQL Server checks ran on GitHub's Linux runner rather than the Mac. No real-browser end-to-end run against a deployed AWS environment was performed.
+
 ## Reproduction
 
 ```sh
@@ -36,4 +47,8 @@ CI's SQL Server credentials are disposable values for the isolated job container
 
 ## Publishing status
 
-GitHub repository read access was verified, but both Git data and file-write APIs returned HTTP 403, “Resource not accessible by integration.” The repository reported user-level push access, which does not guarantee the connected app has content-write permission. A local Git push also failed because no HTTPS username/credentials were available. The local checkout preserves the remote initial commit and has the application committed on main. No GitHub upload is claimed. GitHub Actions and SQL Server CI results remain unverified until a push succeeds.
+Published to [reachus-sreeni/service-connect, main](https://github.com/reachus-sreeni/service-connect) using GitHub CLI after device authorization. Existing repository history was preserved. The original connected integration rejected writes; GitHub CLI publishing succeeded.
+
+The first SQL Server CI run exposed a nested EF Core deadlock exception that bypassed conflict handling. The workflow now translates wrapped SQL error 1205 into a 409 response after rolling back the failed transaction. The concurrency test requires exactly one successful acceptance and a handled conflict for the other attempt.
+
+Current verification run: https://github.com/reachus-sreeni/service-connect/actions/runs/40619136660
