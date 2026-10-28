@@ -36,4 +36,4 @@ CI's SQL Server credentials are disposable values for the isolated job container
 
 ## Publishing status
 
-GitHub repository read access was verified, but both Git data and file-write APIs returned HTTP 403, “Resource not accessible by integration.” The repository reported user-level push access, which does not guarantee the connected app has content-write permission. No GitHub upload is claimed. GitHub Actions and SQL Server CI results remain unverified until a push succeeds.
+GitHub repository read access was verified, but both Git data and file-write APIs returned HTTP 403, “Resource not accessible by integration.” The repository reported user-level push access, which does not guarantee the connected app has content-write permission. A local Git push also failed because no HTTPS username/credentials were available. The local checkout preserves the remote initial commit and has the application committed on main. No GitHub upload is claimed. GitHub Actions and SQL Server CI results remain unverified until a push succeeds.

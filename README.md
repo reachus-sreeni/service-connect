@@ -31,7 +31,7 @@ npm run build
 npm test
 ```
 
-Frontend tests use Vitest with a simulated DOM and do not require a separate browser. API tests use an isolated SQLite relational database; they do not prove SQL Server locking behavior. CI additionally runs workflow tests against SQL Server. See the verification report for what actually ran.
+Frontend tests use Vitest with a simulated DOM and do not require a separate browser. API tests use an isolated SQLite relational database; they do not prove SQL Server locking behavior. CI is configured to run workflow tests against SQL Server after publication. See the verification report for what actually ran.
 
 ## Portfolio scope
 

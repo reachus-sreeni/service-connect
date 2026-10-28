@@ -1,6 +1,17 @@
 # Git and GitHub on Mac
 
-The repository is https://github.com/reachus-sreeni/service-connect, branch `main`.
+The destination is https://github.com/reachus-sreeni/service-connect, branch `main`. Publication is currently blocked by authentication; see the verification report.
+
+## Push the prepared local checkout
+
+The `outputs/service-connect` folder delivered with this work is already a Git checkout on `main`, based on the repository’s existing history, with the application committed. After installing Git and GitHub CLI and completing `gh auth login`, open Terminal in that folder and run:
+
+```sh
+git status
+git push -u origin main
+```
+
+If you have only the source ZIP, use the ZIP instructions below; the ZIP intentionally excludes Git metadata.
 
 ## Install Git
 
@@ -10,7 +21,7 @@ git --version
 
 If missing, run `xcode-select --install`, follow the installer and try again. Official guidance: https://git-scm.com/download/mac.
 
-## Get the published project
+## Get the project after publication
 
 ```sh
 git clone https://github.com/reachus-sreeni/service-connect.git
